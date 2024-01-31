@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Examen Selector";
+}
+
+<div class="text-center">
+    <h1>Sélectionner la compétence à évaluer</h1>
+    <hr/>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Choix multiple</h5>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Examen" asp-action="MultipleChoice">Choisir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Réponse courte</h5>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Examen" asp-action="ShortAnswer">Choisir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Vrai/Faux</h5>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Examen" asp-action="TorF">Choisir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Essai</h5>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Examen" asp-action="Essay">Choisir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Correspondance</h5>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Examen" asp-action="Matching">Choisir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
