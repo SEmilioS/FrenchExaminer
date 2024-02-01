@@ -11,20 +11,24 @@ namespace FEWebApp.Data
         private List<Question> _questionsEtre = new List<Question>();
         private List<Question> _questionsWeek = new List<Question>();
         private List<Question> _questionMonth = new List<Question>();
+        private List<Question> _questionArticle = new List<Question>();
         private List<Relation> _relations = new List<Relation>();
         private List<Answer> _answersEtrePresent = new List<Answer>();
         private List<Answer> _answerJoursSemaine = new List<Answer>();
         private List<Answer> _answersMonths = new List<Answer>();
+        private List<Answer> _answersArticle = new List<Answer>();
 
         public List<Relation> preguntas = new List<Relation>();
         public int gradeCG = 0;
         public int gradeEtrePresent = 0;
         public int gradeWeek = 0;
         public int gradeMonth = 0;
+        public int gradeArticle = 0;
         public bool CGcompleted = false;
         public bool EtrePerfectCompleted = false;
         public bool WeekCompleted = false;
         public bool MonthCompleted = false;
+        public bool ArticleCompleted = false;
 
         public DB()
         {
@@ -98,6 +102,26 @@ namespace FEWebApp.Data
             var question56 = new Question { Id = 56, value = "Comment dit-on 'Octubre' en français ?" };
             var question57 = new Question { Id = 57, value = "Comment dit-on 'Noviembre' en français ?" };
             var question58 = new Question { Id = 58, value = "Comment dit-on 'Diciembre' en français ?" };
+
+            
+            var question59 = new Question { Id = 59, value = "Quel est ____ nom français pour 'chaise'?" };
+            var question60 = new Question { Id = 60, value = "Comment dit-on 'lake' en français? ____ réponse commence par 'l.'" };
+            var question61 = new Question { Id = 61, value = "Quel est ____ contraire de 'femme'?" };
+            var question62 = new Question { Id = 62, value = "Donne-moi ____ noms des mois de l'année." };
+            var question63 = new Question { Id = 63, value = "Quel article indéfini doit-on utiliser devant le mot 'éléphant'?" };
+            var question64 = new Question { Id = 64, value = "Complète la phrase : 'J'ai vu ____ petite maison dans ____ village.'" };
+            var question65 = new Question { Id = 65, value = "Donne ____ exemple d'un fruit qui commence par la lettre 'p'." };
+            var question66 = new Question { Id = 66, value = "Trouve ____ synonyme pour ____ mot dans cette phrase : 'C'est ____ film intéressant.'" };
+            var question67 = new Question { Id = 67, value = "Quel est ____ traduction française de 'soleil'?" };
+            var question68 = new Question { Id = 68, value = "Donne-moi ____ adjectif qui commence par 'l'." };
+            var question69 = new Question { Id = 69, value = "Trouve ____ nom d'une ville en France qui commence par 'P'." };
+            var question70 = new Question { Id = 70, value = "Complète la phrase : 'J'ai visité ____ Tour Eiffel à Paris.'" };
+            var question71 = new Question { Id = 71, value = "Quel article indéfini doit-on utiliser devant le mot 'amie'?" };
+            var question72 = new Question { Id = 72, value = "Trouve ____ adjectif qui commence par 'd'." };
+            var question73 = new Question { Id = 73, value = "Donne ____ exemple d'un instrument de musique." };
+            var question74 = new Question { Id = 74, value = "Complète la phrase : 'J'ai acheté ____ robe pour ____ soirée.'" };
+
+
 
 
 
@@ -199,6 +223,16 @@ namespace FEWebApp.Data
             var answer98 = new Answer { Id = 98, value = "Novembre" };
             var answer99 = new Answer { Id = 99, value = "Décembre" };
 
+            var answer101 = new Answer { Id = 101, value = "l'" };
+            var answer102 = new Answer { Id = 102, value = "le" };
+            var answer103 = new Answer { Id = 103, value = "les" };
+            var answer104 = new Answer { Id = 104, value = "la" };
+            var answer105 = new Answer { Id = 105, value = "un" };
+            var answer106 = new Answer { Id = 106, value = "une" };
+            var answer107 = new Answer { Id = 107, value = "des" };
+            var answer108 = new Answer { Id = 108, value = "une" };
+
+
 
             // Sample Relations
             var relation1 = new Relation { question = question1, answer = answer1, answerList = new List<Answer> { answer6, answer7, answer8} };
@@ -262,6 +296,26 @@ namespace FEWebApp.Data
             var relation56 = new Relation { question = question57, answer = answer98, answerList = _answersMonths };
             var relation57 = new Relation { question = question58, answer = answer99, answerList = _answersMonths };
 
+            var relation59 = new Relation { question = question59, answer = answer101, answerList = _answersArticle };
+            var relation60 = new Relation { question = question60, answer = answer102, answerList = _answersArticle };
+            var relation61 = new Relation { question = question61, answer = answer103, answerList = _answersArticle };
+            var relation62 = new Relation { question = question62, answer = answer104, answerList = _answersArticle };
+            var relation63 = new Relation { question = question63, answer = answer101, answerList = _answersArticle };
+            var relation64 = new Relation { question = question64, answer = answer102, answerList = _answersArticle };
+            var relation65 = new Relation { question = question65, answer = answer103, answerList = _answersArticle };
+            var relation66 = new Relation { question = question66, answer = answer104, answerList = _answersArticle };
+
+
+            var relation67 = new Relation { question = question67, answer = answer105, answerList = _answersArticle };
+            var relation68 = new Relation { question = question68, answer = answer106, answerList = _answersArticle };
+            var relation69 = new Relation { question = question69, answer = answer107, answerList = _answersArticle };
+            var relation70 = new Relation { question = question70, answer = answer108, answerList = _answersArticle };
+            var relation71 = new Relation { question = question71, answer = answer105, answerList = _answersArticle };
+            var relation72 = new Relation { question = question72, answer = answer106, answerList = _answersArticle };
+            var relation73 = new Relation { question = question73, answer = answer107, answerList = _answersArticle };
+            var relation74 = new Relation { question = question74, answer = answer108, answerList = _answersArticle };
+
+
             _answersEtrePresent.Add(answer48);
             _answersEtrePresent.Add(answer49);
             _answersEtrePresent.Add(answer50);
@@ -290,6 +344,14 @@ namespace FEWebApp.Data
             _answersMonths.Add(answer98);
             _answersMonths.Add(answer99);
 
+            _answersArticle.Add(answer101);
+            _answersArticle.Add(answer102);
+            _answersArticle.Add(answer103);
+            _answersArticle.Add(answer104);
+            _answersArticle.Add(answer105);
+            _answersArticle.Add(answer106);
+            _answersArticle.Add(answer107);
+            _answersArticle.Add(answer108);
 
 
             // Add questions, answers, and relations to the lists
@@ -354,6 +416,23 @@ namespace FEWebApp.Data
             _questionMonth.Add(question57);
             _questionMonth.Add(question58);
 
+            _questionArticle.Add(question59);
+            _questionArticle.Add(question60);
+            _questionArticle.Add(question61);
+            _questionArticle.Add(question62);
+            _questionArticle.Add(question63);
+            _questionArticle.Add(question64);
+            _questionArticle.Add(question65);
+            _questionArticle.Add(question66);
+            _questionArticle.Add(question67);
+            _questionArticle.Add(question68);
+            _questionArticle.Add(question69);
+            _questionArticle.Add(question70);
+            _questionArticle.Add(question71);
+            _questionArticle.Add(question72);
+            _questionArticle.Add(question73);
+            _questionArticle.Add(question74);
+
             _relations.Add(relation1);
             _relations.Add(relation2);
             _relations.Add(relation3);
@@ -411,6 +490,23 @@ namespace FEWebApp.Data
             _relations.Add(relation55);
             _relations.Add(relation56);
             _relations.Add(relation57);
+            _relations.Add(relation59);
+            _relations.Add(relation60);
+            _relations.Add(relation61);
+            _relations.Add(relation62);
+            _relations.Add(relation63);
+            _relations.Add(relation64);
+            _relations.Add(relation65);
+            _relations.Add(relation66);
+            _relations.Add(relation67);
+            _relations.Add(relation68);
+            _relations.Add(relation69);
+            _relations.Add(relation70);
+            _relations.Add(relation71);
+            _relations.Add(relation72);
+            _relations.Add(relation73);
+            _relations.Add(relation74);
+
 
 
 
@@ -602,6 +698,51 @@ namespace FEWebApp.Data
             return result;
         }
 
+        public List<Question> getQuestionsArticle(int quantity)
+        {
+            List<Question> selectedQuestions = new List<Question>();
+            HashSet<Question> selectedQuestionSet = new HashSet<Question>();
 
+            quantity = Math.Min(quantity, _questionArticle.Count);
+
+            List<Question> shuffledQuestions = _questionArticle.OrderBy(q => Guid.NewGuid()).ToList();
+
+            for (int i = 0; i < shuffledQuestions.Count && selectedQuestions.Count < quantity; i++)
+            {
+                Question question = shuffledQuestions[i];
+
+                if (selectedQuestionSet.Add(question))
+                {
+                    selectedQuestions.Add(question);
+                }
+            }
+
+            return selectedQuestions;
+        }
+
+        public List<Relation> getAnswersArticle(List<Question> questions)
+        {
+            List<Relation> result = new List<Relation>();
+
+            foreach (var question in questions)
+            {
+                if (question.Id >= 59 && question.Id <= 74)
+                {
+                    var questionDTO = _questionArticle.FirstOrDefault(q => q.ToString() == question.ToString());
+
+                    if (questionDTO != null)
+                    {
+                        var relationDTO = _relations.FirstOrDefault(r => r.question?.Id == questionDTO.Id);
+
+                        if (relationDTO != null)
+                        {
+                            result.Add(relationDTO);
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
     }
 }
