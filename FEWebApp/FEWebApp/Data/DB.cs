@@ -392,8 +392,8 @@ namespace FEWebApp.Data
             var relation3 = new Relation { question = question3, answer = answer3, answerList = new List<Answer> { answer12, answer13, answer14 } };
             var relation4 = new Relation { question = question4, answer = answer4, answerList = new List<Answer> { answer12, answer16, answer3 } };
             var relation5 = new Relation { question = question5, answer = answer5, answerList = new List<Answer> { answer17, answer18, answer19 } };
-            var relation6 = new Relation { question = question6, answer = answer60, answerList = new List<Answer> { answer61, answer62, answer63 } };
-            var relation7 = new Relation { question = question7, answer = answer65, answerList = new List<Answer> { answer64, answer66, answer67 } };
+            var relation6 = new Relation { question = question7, answer = answer60, answerList = new List<Answer> { answer61, answer62, answer63 } };
+            var relation7 = new Relation { question = question6, answer = answer65, answerList = new List<Answer> { answer64, answer66, answer67 } };
             var relation8 = new Relation { question = question8, answer = answer20, answerList = new List<Answer> { answer21, answer22, answer23 } };
             var relation9 = new Relation { question = question9, answer = answer24, answerList = new List<Answer> { answer25, answer26, answer27 } };
             var relation10 = new Relation { question = question10, answer = answer28, answerList = new List<Answer> { answer29, answer30, answer31 } };
@@ -1220,7 +1220,12 @@ namespace FEWebApp.Data
 
                         if (relationDTO != null)
                         {
-                            var distinctAnswers = relationDTO.answerList.Where(a => a != relationDTO.answer).Distinct().Take(3).ToList();
+                            var distinctAnswers = relationDTO.answerList
+                                .Where(a => a != relationDTO.answer)
+                                .Distinct()
+                                .OrderBy(a => Guid.NewGuid()) // Shuffle the distinct answers
+                                .Take(3)
+                                .ToList();
 
                             relationDTO.answerList = distinctAnswers;
 

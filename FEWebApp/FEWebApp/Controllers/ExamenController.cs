@@ -19,12 +19,7 @@ namespace FEWebApp.Controllers
             return View();
         }
 
-        public IActionResult MCetre() 
-        {
-            return View();
-        }
-
-        public IActionResult EtrePresent()
+        public IActionResult MCetrePresent()
         {
             if (!_repositorio.EtrePerfectCompleted)
             {
@@ -42,7 +37,7 @@ namespace FEWebApp.Controllers
                     }
                 }
 
-                return View("MCcg", relations);
+                return View(relations);
             }
             return RedirectToAction("Completed");
         }
@@ -102,14 +97,6 @@ namespace FEWebApp.Controllers
 
                 _repositorio.preguntas = null;
                 _repositorio.preguntas = relations;
-
-                foreach (var rel in relations)
-                {
-                    if (!rel.answerList.Contains(rel.answer))
-                    {
-                        rel.answerList.Add(rel.answer);
-                    }
-                }
 
                 return View(relations);
             }
