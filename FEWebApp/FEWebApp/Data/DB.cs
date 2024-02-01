@@ -18,7 +18,9 @@ namespace FEWebApp.Data
 
         public List<Relation> preguntas = new List<Relation>();
         public int gradeCG = 0;
+        public int gradeEtrePresent = 0;
         public bool CGcompleted = false;
+        public bool EtrePerfectCompleted = false;
 
         public DB()
         {
@@ -280,6 +282,27 @@ namespace FEWebApp.Data
             _relations.Add(relation12);
             _relations.Add(relation13);
             _relations.Add(relation14);
+            _relations.Add(relation15);
+            _relations.Add(relation16);
+            _relations.Add(relation17);
+            _relations.Add(relation18);
+            _relations.Add(relation19);
+            _relations.Add(relation20);
+            _relations.Add(relation21);
+            _relations.Add(relation22);
+            _relations.Add(relation23);
+            _relations.Add(relation24);
+            _relations.Add(relation25);
+            _relations.Add(relation26);
+            _relations.Add(relation27);
+            _relations.Add(relation28);
+            _relations.Add(relation29);
+            _relations.Add(relation30);
+            _relations.Add(relation31);
+            _relations.Add(relation32);
+            _relations.Add(relation33);
+            _relations.Add(relation34);
+            _relations.Add(relation35);
 
         }
 
@@ -327,6 +350,54 @@ namespace FEWebApp.Data
 
             return result;
         }
+
+        public List<Question> getQuestionsEtre(int quantity) 
+        {
+            List<Question> selectedQuestions = new List<Question>();
+            HashSet<Question> selectedQuestionSet = new HashSet<Question>();
+
+            quantity = Math.Min(quantity, _questionsEtre.Count);
+
+            List<Question> shuffledQuestions = _questionsEtre.OrderBy(q => Guid.NewGuid()).ToList();
+
+            for (int i = 0; i < shuffledQuestions.Count && selectedQuestions.Count < quantity; i++)
+            {
+                Question question = shuffledQuestions[i];
+
+                if (selectedQuestionSet.Add(question))
+                {
+                    selectedQuestions.Add(question);
+                }
+            }
+
+            return selectedQuestions;
+        }
+
+        public List<Relation> getAnswersEtrePresent(List<Question> questions)
+        {
+            List<Relation> result = new List<Relation>();
+
+            foreach (var question in questions)
+            {
+                if (question.Id >= 15 && question.Id <= 35)
+                {
+                    var questionDTO = _questionsEtre.FirstOrDefault(q => q.ToString() == question.ToString());
+
+                    if (questionDTO != null)
+                    {
+                        var relationDTO = _relations.FirstOrDefault(r => r.question?.Id == questionDTO.Id);
+
+                        if (relationDTO != null)
+                        {
+                            result.Add(relationDTO);
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
 
     }
 }
