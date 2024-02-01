@@ -19,25 +19,37 @@ namespace FEWebApp.Controllers
             return View();
         }
 
-        public IActionResult MultipleChoice()
+        public IActionResult MCcg()
         {
-            var randomQuestions = _repositorio.GetQuestions(5);
-            var relations = _repositorio.getAnswers(randomQuestions);
+            if (!_repositorio.CGcompleted)
+            {
+                var randomQuestions = _repositorio.GetQuestionsCG(10);
+                var relations = _repositorio.getAnswers(randomQuestions);
 
-            _repositorio.preguntas = null;
-            _repositorio.preguntas = relations;
+                _repositorio.preguntas = null;
+                _repositorio.preguntas = relations;
 
-            return View(relations);
+                foreach (var rel in relations)
+                {
+                    if (!rel.answerList.Contains(rel.answer))
+                    {
+                        rel.answerList.Add(rel.answer);
+                    }
+                }
+
+                return View(relations);
+            }
+            return RedirectToAction("Completed");
         }
 
         [HttpPost]
-        public IActionResult ProcessAnswers(List<string> answers)
+        public IActionResult ProcessAnswersCG(List<string> answers)
         {
+            _repositorio.CGcompleted = true;
             var relations = _repositorio.preguntas;
 
             foreach (var rel in relations)
             {
-
                 if (!rel.answerList.Contains(rel.answer))
                 {
                     rel.answerList.Add(rel.answer);
@@ -46,25 +58,37 @@ namespace FEWebApp.Controllers
 
             for (int i = 0; i < relations.Count; i++)
             {
-                string selectedAnswer = answers[i];
-
-                relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
-            }
-
-            foreach (var rel in relations)
-            {
-                if (rel.selectedItem == rel.answer)
+                if (i < answers.Count)
                 {
-                    rel.grade = 1;
+                    string selectedAnswer = answers[i];
+
+                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
+
+                    if (relations[i].selectedItem == relations[i].answer)
+                    {
+                        relations[i].grade = 1;
+                    }
+                    else
+                    {
+                        relations[i].grade = 0;
+                    }
                 }
                 else
                 {
-                    rel.grade = 0;
+                    relations[i].grade = 0;
                 }
             }
+
+            _repositorio.gradeCG = relations.Sum(a => a.grade);
 
             return View("ResultMC", relations);
         }
 
+
+
+        public IActionResult Completed() 
+        {
+            return View();
+        }
     }
 }

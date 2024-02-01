@@ -22,8 +22,8 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/MultipleChoice.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE11bHRpcGxlQ2hvaWNlLmNzaHRtbA==
+[C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/MCcg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE1DY2cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/ResultMC.cshtml]
@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Shared/Completed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBsZXRlZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Shared/Error.cshtml]
