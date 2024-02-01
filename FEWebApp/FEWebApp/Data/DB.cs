@@ -29,6 +29,13 @@ namespace FEWebApp.Data
             var question5 = new Question { Id = 5, value = "Quelle est la monnaie utilisée en France?" };
             var question6 = new Question { Id = 6, value = "Quelle est la monnaie utilisée en Amérique?" };
             var question7 = new Question { Id = 6, value = "Quelle est la monnaie utilisée au Japon?" };
+            var question8 = new Question { Id = 7, value = "Quelle est la fete nationale de la France?" };
+            var question9 = new Question { Id = 8, value = "Quel est l'oiseau national de la France?" };
+            var question10 = new Question { Id = 9, value = "Quelle est la fleur nationale de la France?" };
+            var question11 = new Question { Id = 10, value = "Quel est le monument emblématique de la France?" };
+            var question12 = new Question { Id = 11, value = "Quels sont las pays limitrophes de la France?" };
+            var question13 = new Question { Id = 12, value = "Quel est l'hymne national de la France?" };
+            var question14 = new Question { Id = 13, value = "Quelles sont des spécialités culinaires francaises?" };
 
             // Sample Answers
             var answer1 = new Answer { Id = 1, value = "République Francaise" };
@@ -49,6 +56,37 @@ namespace FEWebApp.Data
             var answer17 = new Answer { Id = 17, value = "Dollar américain" };
             var answer18 = new Answer { Id = 18, value = "Yen japonais" };
             var answer19 = new Answer { Id = 19, value = "Livre sterling" };
+            var answer20 = new Answer { Id = 20, value = "14 juillet" };
+            var answer21 = new Answer { Id = 21, value = "1er janvier" };
+            var answer22 = new Answer { Id = 22, value = "25 décembre" };
+            var answer23 = new Answer { Id = 23, value = "1er mai" };
+            var answer24 = new Answer { Id = 24, value = "coq" };
+            var answer25 = new Answer { Id = 25, value = "Cygne" };
+            var answer26 = new Answer { Id = 26, value = "Aigle" };
+            var answer27 = new Answer { Id = 27, value = "Colombe" };
+            var answer28 = new Answer { Id = 28, value = "Lys" };
+            var answer29 = new Answer { Id = 29, value = "Rose" };
+            var answer30 = new Answer { Id = 30, value = "Tournesol" };
+            var answer31 = new Answer { Id = 31, value = "Lilas" };
+            var answer32 = new Answer { Id = 32, value = "Museo de Louvre" };
+            var answer33 = new Answer { Id = 33, value = "Big Ben" };
+            var answer34 = new Answer { Id = 34, value = "Tour de Pise" };
+            var answer35 = new Answer { Id = 35, value = "Tour de Eiffel" };
+            var answer36 = new Answer { Id = 36, value = "Espagne, Suisse, Belgique, Océan Atlantique" };
+            var answer37 = new Answer { Id = 37, value = "Allemagne, Suisse, Belgique, Espagne" };
+            var answer38 = new Answer { Id = 38, value = "Espagne, Allemagne, Italie, Rayoumeuni" };
+            var answer39 = new Answer { Id = 39, value = "Suisse, belgique, Espagne, Italie" };
+            var answer40 = new Answer { Id = 40, value = "La marseillaise" };
+            var answer41 = new Answer { Id = 41, value = "Ode á la Joie" };
+            var answer42 = new Answer { Id = 42, value = "God Save the King" };
+            var answer43 = new Answer { Id = 43, value = "Hymne á la Beauté" };
+            var answer44 = new Answer { Id = 44, value = "Vino, Queso, Crepas" };
+            var answer45 = new Answer { Id = 45, value = "Burger, Fries, Shake" };
+            var answer46 = new Answer { Id = 46, value = "Vino, Pasta, Dim Sum" };
+            var answer47 = new Answer { Id = 47, value = "Gallo Pinto, Queso, Crepas" };
+
+
+
 
 
             // Sample Relations
@@ -59,6 +97,16 @@ namespace FEWebApp.Data
             var relation5 = new Relation { question = question5, answer = answer5, answerList = new List<Answer> { answer17, answer18, answer19 } };
             var relation6 = new Relation { question = question6, answer = answer17, answerList = new List<Answer> { answer5, answer18, answer19 } };
             var relation7 = new Relation { question = question7, answer = answer18, answerList = new List<Answer> { answer19, answer17, answer5 } };
+            var relation8 = new Relation { question = question8, answer = answer20, answerList = new List<Answer> { answer21, answer22, answer23 } };
+            var relation9 = new Relation { question = question9, answer = answer24, answerList = new List<Answer> { answer25, answer26, answer27 } };
+            var relation10 = new Relation { question = question10, answer = answer28, answerList = new List<Answer> { answer29, answer30, answer31 } };
+            var relation11 = new Relation { question = question11, answer = answer35, answerList = new List<Answer> { answer32, answer33, answer34 } };
+            var relation12 = new Relation { question = question12, answer = answer36, answerList = new List<Answer> { answer37, answer38, answer39 } };
+            var relation13 = new Relation { question = question13, answer = answer40, answerList = new List<Answer> { answer41, answer42, answer43 } };
+            var relation14 = new Relation { question = question14, answer = answer44, answerList = new List<Answer> { answer45, answer46, answer47 } };
+
+            
+
 
             // Add questions, answers, and relations to the lists
             _questions.Add(question1);
