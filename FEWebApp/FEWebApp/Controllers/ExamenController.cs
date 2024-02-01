@@ -47,6 +47,52 @@ namespace FEWebApp.Controllers
             return RedirectToAction("Completed");
         }
 
+        public IActionResult Mcmonth()
+        {
+            if (!_repositorio.MonthCompleted)
+            {
+                var randomQuestions = _repositorio.getQuestionsMonth(10);
+                var relations = _repositorio.getAnswersMonth(randomQuestions);
+
+                _repositorio.preguntas = null;
+                _repositorio.preguntas = relations;
+
+                foreach (var rel in relations)
+                {
+                    if (!rel.answerList.Contains(rel.answer))
+                    {
+                        rel.answerList.Add(rel.answer);
+                    }
+                }
+
+                return View(relations);
+            }
+            return RedirectToAction("Completed");
+        }
+
+        public IActionResult Mcweek() 
+        {
+            if (!_repositorio.WeekCompleted)
+            {
+                var randomQuestions = _repositorio.getQuestionsWeek(10);
+                var relations = _repositorio.getAnswersWeek(randomQuestions);
+
+                _repositorio.preguntas = null;
+                _repositorio.preguntas = relations;
+
+                foreach (var rel in relations)
+                {
+                    if (!rel.answerList.Contains(rel.answer))
+                    {
+                        rel.answerList.Add(rel.answer);
+                    }
+                }
+
+                return View(relations);
+            }
+            return RedirectToAction("Completed");
+        }
+
         public IActionResult MCcg()
         {
             if (!_repositorio.CGcompleted)
@@ -153,6 +199,91 @@ namespace FEWebApp.Controllers
 
             return View("ResultMC", relations);
         }
+
+        [HttpPost]
+        public IActionResult ProcessAnswersWeek(List<string> answers)
+        {
+            _repositorio.WeekCompleted = true;
+            var relations = _repositorio.preguntas;
+
+            foreach (var rel in relations)
+            {
+                if (!rel.answerList.Contains(rel.answer))
+                {
+                    rel.answerList.Add(rel.answer);
+                }
+            }
+
+            for (int i = 0; i < relations.Count; i++)
+            {
+                if (i < answers.Count)
+                {
+                    string selectedAnswer = answers[i];
+
+                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
+
+                    if (relations[i].selectedItem == relations[i].answer)
+                    {
+                        relations[i].grade = 1;
+                    }
+                    else
+                    {
+                        relations[i].grade = 0;
+                    }
+                }
+                else
+                {
+                    relations[i].grade = 0;
+                }
+            }
+
+            _repositorio.gradeWeek = relations.Sum(a => a.grade);
+
+            return View("ResultMC", relations);
+        }
+
+        [HttpPost]
+        public IActionResult ProcessAnswersMonth(List<string> answers)
+        {
+            _repositorio.MonthCompleted = true;
+            var relations = _repositorio.preguntas;
+
+            foreach (var rel in relations)
+            {
+                if (!rel.answerList.Contains(rel.answer))
+                {
+                    rel.answerList.Add(rel.answer);
+                }
+            }
+
+            for (int i = 0; i < relations.Count; i++)
+            {
+                if (i < answers.Count)
+                {
+                    string selectedAnswer = answers[i];
+
+                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
+
+                    if (relations[i].selectedItem == relations[i].answer)
+                    {
+                        relations[i].grade = 1;
+                    }
+                    else
+                    {
+                        relations[i].grade = 0;
+                    }
+                }
+                else
+                {
+                    relations[i].grade = 0;
+                }
+            }
+
+            _repositorio.gradeMonth = relations.Sum(a => a.grade);
+
+            return View("ResultMC", relations);
+        }
+
 
 
 
