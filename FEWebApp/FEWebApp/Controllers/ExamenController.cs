@@ -97,8 +97,31 @@ namespace FEWebApp.Controllers
         {
             if (!_repositorio.ArticleCompleted)
             {
-                var randomQuestions = _repositorio.getQuestionsArticle(10);
+                var randomQuestions = _repositorio.getQuestionsArticle(20);
                 var relations = _repositorio.getAnswersArticle(randomQuestions);
+
+                _repositorio.preguntas = null;
+                _repositorio.preguntas = relations;
+
+                foreach (var rel in relations)
+                {
+                    if (!rel.answerList.Contains(rel.answer))
+                    {
+                        rel.answerList.Add(rel.answer);
+                    }
+                }
+
+                return View(relations);
+            }
+            return RedirectToAction("Completed");
+        }
+
+        public IActionResult MCnumbers()
+        {
+            if (!_repositorio.NumberCompleted)
+            {
+                var randomQuestions = _repositorio.getQuestionsNumber(10);
+                var relations = _repositorio.getAnswersNumber(randomQuestions);
 
                 _repositorio.preguntas = null;
                 _repositorio.preguntas = relations;
@@ -349,7 +372,47 @@ namespace FEWebApp.Controllers
             return View("ResultMC", relations);
         }
 
+        [HttpPost]
+        public IActionResult ProcessAnswersNumbers(List<string> answers)
+        {
+            _repositorio.NumberCompleted = true;
+            var relations = _repositorio.preguntas;
 
+            foreach (var rel in relations)
+            {
+                if (!rel.answerList.Contains(rel.answer))
+                {
+                    rel.answerList.Add(rel.answer);
+                }
+            }
+
+            for (int i = 0; i < relations.Count; i++)
+            {
+                if (i < answers.Count)
+                {
+                    string selectedAnswer = answers[i];
+
+                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
+
+                    if (relations[i].selectedItem == relations[i].answer)
+                    {
+                        relations[i].grade = 1;
+                    }
+                    else
+                    {
+                        relations[i].grade = 0;
+                    }
+                }
+                else
+                {
+                    relations[i].grade = 0;
+                }
+            }
+
+            _repositorio.gradeNumbers = relations.Sum(a => a.grade);
+
+            return View("ResultMC", relations);
+        }
 
         public IActionResult Completed() 
         {

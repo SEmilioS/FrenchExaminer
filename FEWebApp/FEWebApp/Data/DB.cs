@@ -12,11 +12,13 @@ namespace FEWebApp.Data
         private List<Question> _questionsWeek = new List<Question>();
         private List<Question> _questionMonth = new List<Question>();
         private List<Question> _questionArticle = new List<Question>();
+        private List<Question> _questionNumbers = new List<Question>();
         private List<Relation> _relations = new List<Relation>();
         private List<Answer> _answersEtrePresent = new List<Answer>();
         private List<Answer> _answerJoursSemaine = new List<Answer>();
         private List<Answer> _answersMonths = new List<Answer>();
         private List<Answer> _answersArticle = new List<Answer>();
+        private List<Answer> _answersNumbers = new List<Answer>();
 
         public List<Relation> preguntas = new List<Relation>();
         public int gradeCG = 0;
@@ -24,11 +26,13 @@ namespace FEWebApp.Data
         public int gradeWeek = 0;
         public int gradeMonth = 0;
         public int gradeArticle = 0;
+        public int gradeNumbers = 0;
         public bool CGcompleted = false;
         public bool EtrePerfectCompleted = false;
         public bool WeekCompleted = false;
         public bool MonthCompleted = false;
         public bool ArticleCompleted = false;
+        public bool NumberCompleted = false;
 
         public DB()
         {
@@ -103,7 +107,7 @@ namespace FEWebApp.Data
             var question57 = new Question { Id = 57, value = "Comment dit-on 'Noviembre' en français ?" };
             var question58 = new Question { Id = 58, value = "Comment dit-on 'Diciembre' en français ?" };
 
-            
+            //Sample questions, Articles definites and indefinites
             var question59 = new Question { Id = 59, value = "Quel est ____ nom français pour 'chaise'?" };
             var question60 = new Question { Id = 60, value = "Comment dit-on 'lake' en français? ____ réponse commence par 'l.'" };
             var question61 = new Question { Id = 61, value = "Quel est ____ contraire de 'femme'?" };
@@ -121,7 +125,77 @@ namespace FEWebApp.Data
             var question73 = new Question { Id = 73, value = "Donne ____ exemple d'un instrument de musique." };
             var question74 = new Question { Id = 74, value = "Complète la phrase : 'J'ai acheté ____ robe pour ____ soirée.'" };
 
-
+            //Sample questions, numbers from 0 to 69
+            var question75 = new Question { Id = 75, value = "Comment écrit-on 0 en français ?" };
+            var question76 = new Question { Id = 76, value = "Comment écrit-on 1 en français ?" };
+            var question77 = new Question { Id = 77, value = "Comment écrit-on 2 en français ?" };
+            var question78 = new Question { Id = 78, value = "Comment écrit-on 3 en français ?" };
+            var question79 = new Question { Id = 79, value = "Comment écrit-on 4 en français ?" };
+            var question80 = new Question { Id = 80, value = "Comment écrit-on 5 en français ?" };
+            var question81 = new Question { Id = 81, value = "Comment écrit-on 6 en français ?" };
+            var question82 = new Question { Id = 82, value = "Comment écrit-on 7 en français ?" };
+            var question83 = new Question { Id = 83, value = "Comment écrit-on 8 en français ?" };
+            var question84 = new Question { Id = 84, value = "Comment écrit-on 9 en français ?" };
+            var question85 = new Question { Id = 85, value = "Comment écrit-on 10 en français ?" };
+            var question86 = new Question { Id = 86, value = "Comment écrit-on 20 en français ?" };
+            var question87 = new Question { Id = 87, value = "Comment écrit-on 30 en français ?" };
+            var question88 = new Question { Id = 88, value = "Comment écrit-on 40 en français ?" };
+            var question89 = new Question { Id = 89, value = "Comment écrit-on 50 en français ?" };
+            var question90 = new Question { Id = 90, value = "Comment écrit-on 60 en français ?" };
+            var question91 = new Question { Id = 91, value = "Comment écrit-on 11 en français ?" };
+            var question92 = new Question { Id = 92, value = "Comment écrit-on 12 en français ?" };
+            var question93 = new Question { Id = 93, value = "Comment écrit-on 13 en français ?" };
+            var question94 = new Question { Id = 94, value = "Comment écrit-on 14 en français ?" };
+            var question95 = new Question { Id = 95, value = "Comment écrit-on 15 en français ?" };
+            var question96 = new Question { Id = 96, value = "Comment écrit-on 16 en français ?" };
+            var question97 = new Question { Id = 97, value = "Comment écrit-on 17 en français ?" };
+            var question98 = new Question { Id = 98, value = "Comment écrit-on 18 en français ?" };
+            var question99 = new Question { Id = 99, value = "Comment écrit-on 19 en français ?" };
+            var question100 = new Question { Id = 100, value = "Comment écrit-on 21 en français ?" };
+            var question101 = new Question { Id = 101, value = "Comment écrit-on 22 en français ?" };
+            var question102 = new Question { Id = 102, value = "Comment écrit-on 23 en français ?" };
+            var question103 = new Question { Id = 103, value = "Comment écrit-on 24 en français ?" };
+            var question104 = new Question { Id = 104, value = "Comment écrit-on 25 en français ?" };
+            var question105 = new Question { Id = 105, value = "Comment écrit-on 26 en français ?" };
+            var question106 = new Question { Id = 106, value = "Comment écrit-on 27 en français ?" };
+            var question107 = new Question { Id = 107, value = "Comment écrit-on 28 en français ?" };
+            var question108 = new Question { Id = 108, value = "Comment écrit-on 29 en français ?" };
+            var question109 = new Question { Id = 109, value = "Comment écrit-on 31 en français ?" };
+            var question110 = new Question { Id = 110, value = "Comment écrit-on 32 en français ?" };
+            var question111 = new Question { Id = 111, value = "Comment écrit-on 33 en français ?" };
+            var question112 = new Question { Id = 112, value = "Comment écrit-on 34 en français ?" };
+            var question113 = new Question { Id = 113, value = "Comment écrit-on 35 en français ?" };
+            var question114 = new Question { Id = 114, value = "Comment écrit-on 36 en français ?" };
+            var question115 = new Question { Id = 115, value = "Comment écrit-on 37 en français ?" };
+            var question116 = new Question { Id = 116, value = "Comment écrit-on 38 en français ?" };
+            var question117 = new Question { Id = 117, value = "Comment écrit-on 39 en français ?" };
+            var question118 = new Question { Id = 118, value = "Comment écrit-on 41 en français ?" };
+            var question119 = new Question { Id = 119, value = "Comment écrit-on 42 en français ?" };
+            var question120 = new Question { Id = 120, value = "Comment écrit-on 43 en français ?" };
+            var question121 = new Question { Id = 121, value = "Comment écrit-on 44 en français ?" };
+            var question122 = new Question { Id = 122, value = "Comment écrit-on 45 en français ?" };
+            var question123 = new Question { Id = 123, value = "Comment écrit-on 46 en français ?" };
+            var question124 = new Question { Id = 124, value = "Comment écrit-on 47 en français ?" };
+            var question125 = new Question { Id = 125, value = "Comment écrit-on 48 en français ?" };
+            var question126 = new Question { Id = 126, value = "Comment écrit-on 49 en français ?" };
+            var question127 = new Question { Id = 127, value = "Comment écrit-on 51 en français ?" };
+            var question128 = new Question { Id = 128, value = "Comment écrit-on 52 en français ?" };
+            var question129 = new Question { Id = 129, value = "Comment écrit-on 53 en français ?" };
+            var question130 = new Question { Id = 130, value = "Comment écrit-on 54 en français ?" };
+            var question131 = new Question { Id = 131, value = "Comment écrit-on 55 en français ?" };
+            var question132 = new Question { Id = 132, value = "Comment écrit-on 56 en français ?" };
+            var question133 = new Question { Id = 133, value = "Comment écrit-on 57 en français ?" };
+            var question134 = new Question { Id = 134, value = "Comment écrit-on 58 en français ?" };
+            var question135 = new Question { Id = 135, value = "Comment écrit-on 59 en français ?" };
+            var question136 = new Question { Id = 136, value = "Comment écrit-on 61 en français ?" };
+            var question137 = new Question { Id = 137, value = "Comment écrit-on 62 en français ?" };
+            var question138 = new Question { Id = 138, value = "Comment écrit-on 63 en français ?" };
+            var question139 = new Question { Id = 139, value = "Comment écrit-on 64 en français ?" };
+            var question140 = new Question { Id = 140, value = "Comment écrit-on 65 en français ?" };
+            var question141 = new Question { Id = 141, value = "Comment écrit-on 66 en français ?" };
+            var question142 = new Question { Id = 142, value = "Comment écrit-on 67 en français ?" };
+            var question143 = new Question { Id = 143, value = "Comment écrit-on 68 en français ?" };
+            var question144 = new Question { Id = 144, value = "Comment écrit-on 69 en français ?" };
 
 
 
@@ -181,6 +255,7 @@ namespace FEWebApp.Data
             var answer58 = new Answer { Id = 58, value = "êtes" }; //Vous
             var answer59 = new Answer { Id = 59, value = "sont" }; //Ills or Elles
 
+            //Sample Answers, culture general
             var answer60 = new Answer { Id = 60, value = "bleu, blanc, rouge" };
             var answer61 = new Answer { Id = 61, value = "rouge, vert, jaune" };
             var answer62 = new Answer { Id = 62, value = "jaune, blanc, vert" };
@@ -190,6 +265,7 @@ namespace FEWebApp.Data
             var answer66 = new Answer { Id = 66, value = "Athenes" };
             var answer67 = new Answer { Id = 67, value = "Hanoï" };
 
+            //Sample answers days of the week
             var answer68 = new Answer { Id = 68, value = "Lundi" };
             var answer69 = new Answer { Id = 69, value = "Mardi" };
             var answer70 = new Answer { Id = 70, value = "Mercredi" };
@@ -210,6 +286,7 @@ namespace FEWebApp.Data
             var answer86 = new Answer { Id = 86, value = "Hier c'était vendredi" };
             var answer87 = new Answer { Id = 87, value = "Hier c'était miercoles :v" };
 
+            //Sample answers months of the year
             var answer88 = new Answer { Id = 88, value = "Janvier" };
             var answer89 = new Answer { Id = 89, value = "Février" };
             var answer90 = new Answer { Id = 90, value = "Mars" };
@@ -223,6 +300,7 @@ namespace FEWebApp.Data
             var answer98 = new Answer { Id = 98, value = "Novembre" };
             var answer99 = new Answer { Id = 99, value = "Décembre" };
 
+            //Sample answers articles definites and indefinites
             var answer101 = new Answer { Id = 101, value = "l'" };
             var answer102 = new Answer { Id = 102, value = "le" };
             var answer103 = new Answer { Id = 103, value = "les" };
@@ -231,6 +309,80 @@ namespace FEWebApp.Data
             var answer106 = new Answer { Id = 106, value = "une" };
             var answer107 = new Answer { Id = 107, value = "des" };
             var answer108 = new Answer { Id = 108, value = "une" };
+
+            //Sample answers numbers from 0 to 69
+            var answer109 = new Answer { Id = 109, value = "zéro" };
+            var answer110 = new Answer { Id = 110, value = "un" };
+            var answer111 = new Answer { Id = 111, value = "deux" };
+            var answer112 = new Answer { Id = 112, value = "trois" };
+            var answer113 = new Answer { Id = 113, value = "quatre" };
+            var answer114 = new Answer { Id = 114, value = "cinq" };
+            var answer115 = new Answer { Id = 115, value = "six" };
+            var answer116 = new Answer { Id = 116, value = "sept" };
+            var answer117 = new Answer { Id = 117, value = "huit" };
+            var answer118 = new Answer { Id = 118, value = "neuf" };
+            var answer119 = new Answer { Id = 119, value = "dix" };
+            var answer120 = new Answer { Id = 120, value = "vingt" };
+            var answer121 = new Answer { Id = 121, value = "trente" };
+            var answer122 = new Answer { Id = 122, value = "quarante" };
+            var answer123 = new Answer { Id = 123, value = "cinquante" };
+            var answer124 = new Answer { Id = 124, value = "soixante" };
+            var answer125 = new Answer { Id = 125, value = "onze" };
+            var answer126 = new Answer { Id = 126, value = "douze" };
+            var answer127 = new Answer { Id = 127, value = "treize" };
+            var answer128 = new Answer { Id = 128, value = "quatorze" };
+            var answer129 = new Answer { Id = 129, value = "quinze" };
+            var answer130 = new Answer { Id = 130, value = "seize" };
+            var answer131 = new Answer { Id = 131, value = "dix-sept" };
+            var answer132 = new Answer { Id = 132, value = "dix-huit" };
+            var answer133 = new Answer { Id = 133, value = "dix-neuf" };
+            var answer134 = new Answer { Id = 134, value = "vingt et un" };
+            var answer135 = new Answer { Id = 135, value = "vingt-deux" };
+            var answer136 = new Answer { Id = 136, value = "vingt-trois" };
+            var answer137 = new Answer { Id = 137, value = "vingt-quatre" };
+            var answer138 = new Answer { Id = 138, value = "vingt-cinq" };
+            var answer139 = new Answer { Id = 139, value = "vingt-six" };
+            var answer140 = new Answer { Id = 140, value = "vingt-sept" };
+            var answer141 = new Answer { Id = 141, value = "vingt-huit" };
+            var answer142 = new Answer { Id = 142, value = "vingt-neuf" };
+            var answer143 = new Answer { Id = 143, value = "trente et un" };
+            var answer144 = new Answer { Id = 144, value = "trente-deux" };
+            var answer145 = new Answer { Id = 145, value = "trente-trois" };
+            var answer146 = new Answer { Id = 146, value = "trente-quatre" };
+            var answer147 = new Answer { Id = 147, value = "trente-cinq" };
+            var answer148 = new Answer { Id = 148, value = "trente-six" };
+            var answer149 = new Answer { Id = 149, value = "trente-sept" };
+            var answer150 = new Answer { Id = 150, value = "trente-huit" };
+            var answer151 = new Answer { Id = 151, value = "trente-neuf" };
+            var answer152 = new Answer { Id = 152, value = "quarante et un" };
+            var answer153 = new Answer { Id = 153, value = "quarante-deux" };
+            var answer154 = new Answer { Id = 154, value = "quarante-trois" };
+            var answer155 = new Answer { Id = 155, value = "quarante-quatre" };
+            var answer156 = new Answer { Id = 156, value = "quarante-cinq" };
+            var answer157 = new Answer { Id = 157, value = "quarante-six" };
+            var answer158 = new Answer { Id = 158, value = "quarante-sept" };
+            var answer159 = new Answer { Id = 159, value = "quarante-huit" };
+            var answer160 = new Answer { Id = 160, value = "quarante-neuf" };
+            var answer161 = new Answer { Id = 161, value = "cinquante et un" };
+            var answer162 = new Answer { Id = 162, value = "cinquante-deux" };
+            var answer163 = new Answer { Id = 163, value = "cinquante-trois" };
+            var answer164 = new Answer { Id = 164, value = "cinquante-quatre" };
+            var answer165 = new Answer { Id = 165, value = "cinquante-cinq" };
+            var answer166 = new Answer { Id = 166, value = "cinquante-six" };
+            var answer167 = new Answer { Id = 167, value = "cinquante-sept" };
+            var answer168 = new Answer { Id = 168, value = "cinquante-huit" };
+            var answer169 = new Answer { Id = 169, value = "cinquante-neuf" };
+            var answer170 = new Answer { Id = 170, value = "soixante et un" };
+            var answer171 = new Answer { Id = 171, value = "soixante-deux" };
+            var answer172 = new Answer { Id = 172, value = "soixante-trois" };
+            var answer173 = new Answer { Id = 173, value = "soixante-quatre" };
+            var answer174 = new Answer { Id = 174, value = "soixante-cinq" };
+            var answer175 = new Answer { Id = 175, value = "soixante-six" };
+            var answer176 = new Answer { Id = 176, value = "soixante-sept" };
+            var answer177 = new Answer { Id = 177, value = "soixante-huit" };
+            var answer178 = new Answer { Id = 178, value = "soixante-neuf" };
+
+
 
 
 
@@ -315,6 +467,77 @@ namespace FEWebApp.Data
             var relation73 = new Relation { question = question73, answer = answer107, answerList = _answersArticle };
             var relation74 = new Relation { question = question74, answer = answer108, answerList = _answersArticle };
 
+            var relation75 = new Relation { question = question75, answer = answer109, answerList = _answersNumbers };
+            var relation76 = new Relation { question = question76, answer = answer110, answerList = _answersNumbers };
+            var relation77 = new Relation { question = question77, answer = answer111, answerList = _answersNumbers };
+            var relation78 = new Relation { question = question78, answer = answer112, answerList = _answersNumbers };
+            var relation79 = new Relation { question = question79, answer = answer113, answerList = _answersNumbers };
+            var relation80 = new Relation { question = question80, answer = answer114, answerList = _answersNumbers };
+            var relation81 = new Relation { question = question81, answer = answer115, answerList = _answersNumbers };
+            var relation82 = new Relation { question = question82, answer = answer116, answerList = _answersNumbers };
+            var relation83 = new Relation { question = question83, answer = answer117, answerList = _answersNumbers };
+            var relation84 = new Relation { question = question84, answer = answer118, answerList = _answersNumbers };
+            var relation85 = new Relation { question = question85, answer = answer119, answerList = _answersNumbers };
+            var relation86 = new Relation { question = question86, answer = answer120, answerList = _answersNumbers };
+            var relation87 = new Relation { question = question87, answer = answer121, answerList = _answersNumbers };
+            var relation88 = new Relation { question = question88, answer = answer122, answerList = _answersNumbers };
+            var relation89 = new Relation { question = question89, answer = answer123, answerList = _answersNumbers };
+            var relation90 = new Relation { question = question90, answer = answer124, answerList = _answersNumbers };
+            var relation91 = new Relation { question = question91, answer = answer125, answerList = _answersNumbers };
+            var relation92 = new Relation { question = question92, answer = answer126, answerList = _answersNumbers };
+            var relation93 = new Relation { question = question93, answer = answer127, answerList = _answersNumbers };
+            var relation94 = new Relation { question = question94, answer = answer128, answerList = _answersNumbers };
+            var relation95 = new Relation { question = question95, answer = answer129, answerList = _answersNumbers };
+            var relation96 = new Relation { question = question96, answer = answer130, answerList = _answersNumbers };
+            var relation97 = new Relation { question = question97, answer = answer131, answerList = _answersNumbers };
+            var relation98 = new Relation { question = question98, answer = answer132, answerList = _answersNumbers };
+            var relation99 = new Relation { question = question99, answer = answer133, answerList = _answersNumbers };
+            var relation100 = new Relation { question = question100, answer = answer134, answerList = _answersNumbers };
+            var relation101 = new Relation { question = question101, answer = answer135, answerList = _answersNumbers };
+            var relation102 = new Relation { question = question102, answer = answer136, answerList = _answersNumbers };
+            var relation103 = new Relation { question = question103, answer = answer137, answerList = _answersNumbers };
+            var relation104 = new Relation { question = question104, answer = answer138, answerList = _answersNumbers };
+            var relation105 = new Relation { question = question105, answer = answer139, answerList = _answersNumbers };
+            var relation106 = new Relation { question = question106, answer = answer140, answerList = _answersNumbers };
+            var relation107 = new Relation { question = question107, answer = answer141, answerList = _answersNumbers };
+            var relation108 = new Relation { question = question108, answer = answer142, answerList = _answersNumbers };
+            var relation109 = new Relation { question = question109, answer = answer143, answerList = _answersNumbers };
+            var relation110 = new Relation { question = question110, answer = answer144, answerList = _answersNumbers };
+            var relation111 = new Relation { question = question111, answer = answer145, answerList = _answersNumbers };
+            var relation112 = new Relation { question = question112, answer = answer146, answerList = _answersNumbers };
+            var relation113 = new Relation { question = question113, answer = answer147, answerList = _answersNumbers };
+            var relation114 = new Relation { question = question114, answer = answer148, answerList = _answersNumbers };
+            var relation115 = new Relation { question = question115, answer = answer149, answerList = _answersNumbers };
+            var relation116 = new Relation { question = question116, answer = answer150, answerList = _answersNumbers };
+            var relation117 = new Relation { question = question117, answer = answer151, answerList = _answersNumbers };
+            var relation118 = new Relation { question = question118, answer = answer152, answerList = _answersNumbers };
+            var relation119 = new Relation { question = question119, answer = answer153, answerList = _answersNumbers };
+            var relation120 = new Relation { question = question120, answer = answer154, answerList = _answersNumbers };
+            var relation121 = new Relation { question = question121, answer = answer155, answerList = _answersNumbers };
+            var relation122 = new Relation { question = question122, answer = answer156, answerList = _answersNumbers };
+            var relation123 = new Relation { question = question123, answer = answer157, answerList = _answersNumbers };
+            var relation124 = new Relation { question = question124, answer = answer158, answerList = _answersNumbers };
+            var relation125 = new Relation { question = question125, answer = answer159, answerList = _answersNumbers };
+            var relation126 = new Relation { question = question126, answer = answer160, answerList = _answersNumbers };
+            var relation127 = new Relation { question = question127, answer = answer161, answerList = _answersNumbers };
+            var relation128 = new Relation { question = question128, answer = answer162, answerList = _answersNumbers };
+            var relation129 = new Relation { question = question129, answer = answer163, answerList = _answersNumbers };
+            var relation130 = new Relation { question = question130, answer = answer164, answerList = _answersNumbers };
+            var relation131 = new Relation { question = question131, answer = answer165, answerList = _answersNumbers };
+            var relation132 = new Relation { question = question132, answer = answer166, answerList = _answersNumbers };
+            var relation133 = new Relation { question = question133, answer = answer167, answerList = _answersNumbers };
+            var relation134 = new Relation { question = question134, answer = answer168, answerList = _answersNumbers };
+            var relation135 = new Relation { question = question135, answer = answer169, answerList = _answersNumbers };
+            var relation136 = new Relation { question = question136, answer = answer170, answerList = _answersNumbers };
+            var relation137 = new Relation { question = question137, answer = answer171, answerList = _answersNumbers };
+            var relation138 = new Relation { question = question138, answer = answer172, answerList = _answersNumbers };
+            var relation139 = new Relation { question = question139, answer = answer173, answerList = _answersNumbers };
+            var relation140 = new Relation { question = question140, answer = answer174, answerList = _answersNumbers };
+            var relation141 = new Relation { question = question141, answer = answer175, answerList = _answersNumbers };
+            var relation142 = new Relation { question = question142, answer = answer176, answerList = _answersNumbers };
+            var relation143 = new Relation { question = question143, answer = answer177, answerList = _answersNumbers };
+            var relation144 = new Relation { question = question144, answer = answer178, answerList = _answersNumbers };
+
 
             _answersEtrePresent.Add(answer48);
             _answersEtrePresent.Add(answer49);
@@ -352,7 +575,76 @@ namespace FEWebApp.Data
             _answersArticle.Add(answer106);
             _answersArticle.Add(answer107);
             _answersArticle.Add(answer108);
-
+            _answersNumbers.Add(answer109);
+            _answersNumbers.Add(answer110);
+            _answersNumbers.Add(answer111);
+            _answersNumbers.Add(answer112);
+            _answersNumbers.Add(answer113);
+            _answersNumbers.Add(answer114);
+            _answersNumbers.Add(answer115);
+            _answersNumbers.Add(answer116);
+            _answersNumbers.Add(answer117);
+            _answersNumbers.Add(answer118);
+            _answersNumbers.Add(answer119);
+            _answersNumbers.Add(answer120);
+            _answersNumbers.Add(answer121);
+            _answersNumbers.Add(answer122);
+            _answersNumbers.Add(answer123);
+            _answersNumbers.Add(answer124);
+            _answersNumbers.Add(answer125);
+            _answersNumbers.Add(answer126);
+            _answersNumbers.Add(answer127);
+            _answersNumbers.Add(answer128);
+            _answersNumbers.Add(answer129);
+            _answersNumbers.Add(answer130);
+            _answersNumbers.Add(answer131);
+            _answersNumbers.Add(answer132);
+            _answersNumbers.Add(answer133);
+            _answersNumbers.Add(answer134);
+            _answersNumbers.Add(answer135);
+            _answersNumbers.Add(answer136);
+            _answersNumbers.Add(answer137);
+            _answersNumbers.Add(answer138);
+            _answersNumbers.Add(answer139);
+            _answersNumbers.Add(answer140);
+            _answersNumbers.Add(answer141);
+            _answersNumbers.Add(answer142);
+            _answersNumbers.Add(answer143);
+            _answersNumbers.Add(answer144);
+            _answersNumbers.Add(answer145);
+            _answersNumbers.Add(answer146);
+            _answersNumbers.Add(answer147);
+            _answersNumbers.Add(answer148);
+            _answersNumbers.Add(answer149);
+            _answersNumbers.Add(answer150);
+            _answersNumbers.Add(answer151);
+            _answersNumbers.Add(answer152);
+            _answersNumbers.Add(answer153);
+            _answersNumbers.Add(answer154);
+            _answersNumbers.Add(answer155);
+            _answersNumbers.Add(answer156);
+            _answersNumbers.Add(answer157);
+            _answersNumbers.Add(answer158);
+            _answersNumbers.Add(answer159);
+            _answersNumbers.Add(answer160);
+            _answersNumbers.Add(answer161);
+            _answersNumbers.Add(answer162);
+            _answersNumbers.Add(answer163);
+            _answersNumbers.Add(answer164);
+            _answersNumbers.Add(answer165);
+            _answersNumbers.Add(answer166);
+            _answersNumbers.Add(answer167);
+            _answersNumbers.Add(answer168);
+            _answersNumbers.Add(answer169);
+            _answersNumbers.Add(answer170);
+            _answersNumbers.Add(answer171);
+            _answersNumbers.Add(answer172);
+            _answersNumbers.Add(answer173);
+            _answersNumbers.Add(answer174);
+            _answersNumbers.Add(answer175);
+            _answersNumbers.Add(answer176);
+            _answersNumbers.Add(answer177);
+            _answersNumbers.Add(answer178);
 
             // Add questions, answers, and relations to the lists
             _questionsCG.Add(question1);
@@ -433,6 +725,80 @@ namespace FEWebApp.Data
             _questionArticle.Add(question73);
             _questionArticle.Add(question74);
 
+            _questionNumbers.Add(question75);
+            _questionNumbers.Add(question76);
+            _questionNumbers.Add(question77);
+            _questionNumbers.Add(question78);
+            _questionNumbers.Add(question79);
+            _questionNumbers.Add(question80);
+            _questionNumbers.Add(question81);
+            _questionNumbers.Add(question82);
+            _questionNumbers.Add(question83);
+            _questionNumbers.Add(question84);
+            _questionNumbers.Add(question85);
+            _questionNumbers.Add(question86);
+            _questionNumbers.Add(question87);
+            _questionNumbers.Add(question88);
+            _questionNumbers.Add(question89);
+            _questionNumbers.Add(question90);
+            _questionNumbers.Add(question91);
+            _questionNumbers.Add(question92);
+            _questionNumbers.Add(question93);
+            _questionNumbers.Add(question94);
+            _questionNumbers.Add(question95);
+            _questionNumbers.Add(question96);
+            _questionNumbers.Add(question97);
+            _questionNumbers.Add(question98);
+            _questionNumbers.Add(question99);
+            _questionNumbers.Add(question100);
+            _questionNumbers.Add(question101);
+            _questionNumbers.Add(question102);
+            _questionNumbers.Add(question103);
+            _questionNumbers.Add(question104);
+            _questionNumbers.Add(question105);
+            _questionNumbers.Add(question106);
+            _questionNumbers.Add(question107);
+            _questionNumbers.Add(question108);
+            _questionNumbers.Add(question109);
+            _questionNumbers.Add(question110);
+            _questionNumbers.Add(question111);
+            _questionNumbers.Add(question112);
+            _questionNumbers.Add(question113);
+            _questionNumbers.Add(question114);
+            _questionNumbers.Add(question115);
+            _questionNumbers.Add(question116);
+            _questionNumbers.Add(question117);
+            _questionNumbers.Add(question118);
+            _questionNumbers.Add(question119);
+            _questionNumbers.Add(question120);
+            _questionNumbers.Add(question121);
+            _questionNumbers.Add(question122);
+            _questionNumbers.Add(question123);
+            _questionNumbers.Add(question124);
+            _questionNumbers.Add(question125);
+            _questionNumbers.Add(question126);
+            _questionNumbers.Add(question127);
+            _questionNumbers.Add(question128);
+            _questionNumbers.Add(question129);
+            _questionNumbers.Add(question130);
+            _questionNumbers.Add(question131);
+            _questionNumbers.Add(question132);
+            _questionNumbers.Add(question133);
+            _questionNumbers.Add(question134);
+            _questionNumbers.Add(question135);
+            _questionNumbers.Add(question136);
+            _questionNumbers.Add(question137);
+            _questionNumbers.Add(question138);
+            _questionNumbers.Add(question139);
+            _questionNumbers.Add(question140);
+            _questionNumbers.Add(question141);
+            _questionNumbers.Add(question142);
+            _questionNumbers.Add(question143);
+            _questionNumbers.Add(question144);
+
+
+
+
             _relations.Add(relation1);
             _relations.Add(relation2);
             _relations.Add(relation3);
@@ -506,6 +872,77 @@ namespace FEWebApp.Data
             _relations.Add(relation72);
             _relations.Add(relation73);
             _relations.Add(relation74);
+            _relations.Add(relation75);
+            _relations.Add(relation76);
+            _relations.Add(relation77);
+            _relations.Add(relation78);
+            _relations.Add(relation79);
+            _relations.Add(relation80);
+            _relations.Add(relation81);
+            _relations.Add(relation82);
+            _relations.Add(relation83);
+            _relations.Add(relation84);
+            _relations.Add(relation85);
+            _relations.Add(relation86);
+            _relations.Add(relation87);
+            _relations.Add(relation88);
+            _relations.Add(relation89);
+            _relations.Add(relation90);
+            _relations.Add(relation91);
+            _relations.Add(relation92);
+            _relations.Add(relation93);
+            _relations.Add(relation94);
+            _relations.Add(relation95);
+            _relations.Add(relation96);
+            _relations.Add(relation97);
+            _relations.Add(relation98);
+            _relations.Add(relation99);
+            _relations.Add(relation100);
+            _relations.Add(relation101);
+            _relations.Add(relation102);
+            _relations.Add(relation103);
+            _relations.Add(relation104);
+            _relations.Add(relation105);
+            _relations.Add(relation106);
+            _relations.Add(relation107);
+            _relations.Add(relation108);
+            _relations.Add(relation109);
+            _relations.Add(relation110);
+            _relations.Add(relation111);
+            _relations.Add(relation112);
+            _relations.Add(relation113);
+            _relations.Add(relation114);
+            _relations.Add(relation115);
+            _relations.Add(relation116);
+            _relations.Add(relation117);
+            _relations.Add(relation118);
+            _relations.Add(relation119);
+            _relations.Add(relation120);
+            _relations.Add(relation121);
+            _relations.Add(relation122);
+            _relations.Add(relation123);
+            _relations.Add(relation124);
+            _relations.Add(relation125);
+            _relations.Add(relation126);
+            _relations.Add(relation127);
+            _relations.Add(relation128);
+            _relations.Add(relation129);
+            _relations.Add(relation130);
+            _relations.Add(relation131);
+            _relations.Add(relation132);
+            _relations.Add(relation133);
+            _relations.Add(relation134);
+            _relations.Add(relation135);
+            _relations.Add(relation136);
+            _relations.Add(relation137);
+            _relations.Add(relation138);
+            _relations.Add(relation139);
+            _relations.Add(relation140);
+            _relations.Add(relation141);
+            _relations.Add(relation142);
+            _relations.Add(relation143);
+            _relations.Add(relation144);
+
 
 
 
@@ -744,5 +1181,57 @@ namespace FEWebApp.Data
 
             return result;
         }
+
+        public List<Question> getQuestionsNumber(int quantity)
+        {
+            List<Question> selectedQuestions = new List<Question>();
+            HashSet<Question> selectedQuestionSet = new HashSet<Question>();
+
+            quantity = Math.Min(quantity, _questionNumbers.Count);
+
+            List<Question> shuffledQuestions = _questionNumbers.OrderBy(q => Guid.NewGuid()).ToList();
+
+            for (int i = 0; i < shuffledQuestions.Count && selectedQuestions.Count < quantity; i++)
+            {
+                Question question = shuffledQuestions[i];
+
+                if (selectedQuestionSet.Add(question))
+                {
+                    selectedQuestions.Add(question);
+                }
+            }
+
+            return selectedQuestions;
+        }
+
+        public List<Relation> getAnswersNumber(List<Question> questions)
+        {
+            List<Relation> result = new List<Relation>();
+
+            foreach (var question in questions)
+            {
+                if (question.Id >= 75 && question.Id <= 144)
+                {
+                    var questionDTO = _questionNumbers.FirstOrDefault(q => q.ToString() == question.ToString());
+
+                    if (questionDTO != null)
+                    {
+                        var relationDTO = _relations.FirstOrDefault(r => r.question?.Id == questionDTO.Id);
+
+                        if (relationDTO != null)
+                        {
+                            var distinctAnswers = relationDTO.answerList.Where(a => a != relationDTO.answer).Distinct().Take(3).ToList();
+
+                            relationDTO.answerList = distinctAnswers;
+
+                            result.Add(relationDTO);
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
     }
 }
