@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Résultats";
+}
+
+@model List<Relation>
+
+<h1>Résultats</h1>
+
+@{
+    int totalGrade = Model.Sum(rel => rel.grade);
+}
+
+@foreach (var relation in Model)
+{
+    <div>
+        <p>Question: @relation.question.ToString()</p>
+
+        <ul>
+            @foreach (var answer in relation.answerList)
+            {
+                <li>
+                    Answer Choice: @answer.ToString()
+                    @if (answer == relation.selectedItem)
+                    {
+                        <strong>(Sélectionné)</strong>
+                    }
+                </li>
+            }
+        </ul>
+
+        <p>Grade: @relation.grade</p>
+    </div>
+    <hr />
+}
+
+<p>Total Grade: @totalGrade</p>
+
+<p>Merci d'avoir répondu au questionnaire !</p>
