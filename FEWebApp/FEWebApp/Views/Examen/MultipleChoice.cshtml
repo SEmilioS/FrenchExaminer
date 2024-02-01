@@ -1,24 +1,24 @@
 ﻿@{
-    ViewData["Title"] = "Multiple Choice";
+    ViewData["Title"] = "Choix multiple";
 }
 
-@model List<MultipleChoiceViewModel>
+@model List<Relation>
 
-<form id="multipleChoiceForm">
-    <h1>Multiple Choice Questions</h1>
+<h1>Multiple Choice Questions</h1>
 
-    @for (var i = 0; i < Model.Count; i++)
+<form method="post" action="/Examen/ProcessAnswers">
+    @for (int i = 0; i < Model.Count; i++)
     {
-        var question = Model[i];
-        <div class="question" data-questionid="@i">
-            <h3>@question.QuestionText</h3>
+        var relation = Model[i];
+
+        <div>
+            <h3>@relation.question.ToString()</h3>
             <ul>
-                @for (var j = 0; j < question.Choices.Count; j++)
+                @foreach (var answer in relation.answerList.Concat(new List<Answer> { relation.answer }).OrderBy(a => Guid.NewGuid()))
                 {
-                    var choice = question.Choices[j];
                     <li>
                         <label>
-                            <input type="radio" name="answer_@i" value="@j" /> @choice
+                            <input type="radio" name="answers[@i]" value="@answer.ToString()" /> @answer.ToString()
                         </label>
                     </li>
                 }
@@ -27,27 +27,5 @@
         <hr />
     }
 
-    <button type="button" onclick="submitForm()">Submit</button>
+    <button type="submit">Submit</button>
 </form>
-
-<script>
-    function submitForm() {
-        var formData = [];
-        var questions = document.querySelectorAll('.question');
-
-        questions.forEach(function (question) {
-            var questionId = question.getAttribute('data-questionid');
-            var selectedAnswer = question.querySelector('input[name="answer_' + questionId + '"]:checked');
-
-            if (selectedAnswer) {
-                formData.push({
-                    questionId: questionId,
-                    answerId: selectedAnswer.value
-                });
-            }
-        });
-
-        // You can do something with the formData, for example, send it to the server using AJAX
-        console.log(formData);
-    }
-</script>

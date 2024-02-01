@@ -21,23 +21,50 @@ namespace FEWebApp.Controllers
 
         public IActionResult MultipleChoice()
         {
-            List<MultipleChoiceViewModel> multipleChoiceQuestions = new List<MultipleChoiceViewModel>();
             var randomQuestions = _repositorio.GetQuestions(5);
+            var relations = _repositorio.getAnswers(randomQuestions);
 
-            foreach (var questionText in randomQuestions)
+            _repositorio.preguntas = null;
+            _repositorio.preguntas = relations;
+
+            return View(relations);
+        }
+
+        [HttpPost]
+        public IActionResult ProcessAnswers(List<string> answers)
+        {
+            var relations = _repositorio.preguntas;
+
+            foreach (var rel in relations)
             {
-                var answerChoices = _repositorio.getAnswers(questionText);
 
-                var viewModel = new MultipleChoiceViewModel
+                if (!rel.answerList.Contains(rel.answer))
                 {
-                    QuestionText = questionText,
-                    Choices = answerChoices
-                };
-
-                multipleChoiceQuestions.Add(viewModel);
+                    rel.answerList.Add(rel.answer);
+                }
             }
 
-            return View(multipleChoiceQuestions);
+            for (int i = 0; i < relations.Count; i++)
+            {
+                string selectedAnswer = answers[i];
+
+                relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
+            }
+
+            foreach (var rel in relations)
+            {
+                if (rel.selectedItem == rel.answer)
+                {
+                    rel.grade = 1;
+                }
+                else
+                {
+                    rel.grade = 0;
+                }
+            }
+
+            return View("ResultMC", relations);
         }
+
     }
 }

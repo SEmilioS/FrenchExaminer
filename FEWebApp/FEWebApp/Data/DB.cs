@@ -11,6 +11,8 @@ namespace FEWebApp.Data
         private List<Answer> _answers = new List<Answer>();
         private List<Relation> _relations = new List<Relation>();
 
+        public List<Relation> preguntas = new List<Relation>();
+
         public DB()
         {
             // Initialize the database with sample data
@@ -77,10 +79,10 @@ namespace FEWebApp.Data
 
         }
 
-        public List<string> GetQuestions(int quantity)
+        public List<Question> GetQuestions(int quantity)
         {
-            List<string> selectedQuestions = new List<string>();
-            HashSet<string> selectedQuestionSet = new HashSet<string>();
+            List<Question> selectedQuestions = new List<Question>();
+            HashSet<Question> selectedQuestionSet = new HashSet<Question>();
 
             quantity = Math.Min(quantity, _questions.Count);
 
@@ -88,48 +90,38 @@ namespace FEWebApp.Data
 
             for (int i = 0; i < shuffledQuestions.Count && selectedQuestions.Count < quantity; i++)
             {
-                string questionText = shuffledQuestions[i].ToString();
+                Question question = shuffledQuestions[i];
 
-                if (selectedQuestionSet.Add(questionText))
+                if (selectedQuestionSet.Add(question))
                 {
-                    selectedQuestions.Add(questionText);
+                    selectedQuestions.Add(question);
                 }
             }
 
             return selectedQuestions;
         }
 
-        public List<string> getAnswers(string question)
+
+        public List<Relation> getAnswers(List<Question> questions)
         {
-            int minListSize = 4;
+            List<Relation> result = new List<Relation>();
 
-            var questionDTO = _questions.FirstOrDefault(q => q.ToString() == question);
-
-            if (questionDTO == null)
+            foreach (var question in questions)
             {
-                return new List<string>();
+                var questionDTO = _questions.FirstOrDefault(q => q.ToString() == question.ToString());
+
+                if (questionDTO != null)
+                {
+                    var relationDTO = _relations.FirstOrDefault(r => r.question?.Id == questionDTO.Id);
+
+                    if (relationDTO != null)
+                    {
+                        result.Add(relationDTO);
+                    }
+                }
             }
 
-            var relationDTO = _relations.FirstOrDefault(r => r.question?.Id == questionDTO.Id);
-
-            if (relationDTO == null)
-            {
-                return new List<string>();
-            }
-
-            List<Answer> answerList = relationDTO.answerList;
-            List<Answer> shuffledAnswers = answerList.OrderBy(q => Guid.NewGuid()).ToList();
-
-            List<string> answerTextList = new List<string>(minListSize);
-
-            foreach (var answer in shuffledAnswers)
-            {
-                answerTextList.Add(answer.ToString());
-            }
-
-            answerTextList.Add(relationDTO.answer.ToString());
-
-            return answerTextList;
+            return result;
         }
 
     }
