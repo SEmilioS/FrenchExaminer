@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Multiple Choice";
+}
+
+@model List<MultipleChoiceViewModel>
+
+<form id="multipleChoiceForm">
+    <h1>Multiple Choice Questions</h1>
+
+    @for (var i = 0; i < Model.Count; i++)
+    {
+        var question = Model[i];
+        <div class="question" data-questionid="@i">
+            <h3>@question.QuestionText</h3>
+            <ul>
+                @for (var j = 0; j < question.Choices.Count; j++)
+                {
+                    var choice = question.Choices[j];
+                    <li>
+                        <label>
+                            <input type="radio" name="answer_@i" value="@j" /> @choice
+                        </label>
+                    </li>
+                }
+            </ul>
+        </div>
+        <hr />
+    }
+
+    <button type="button" onclick="submitForm()">Submit</button>
+</form>
+
+<script>
+    function submitForm() {
+        var formData = [];
+        var questions = document.querySelectorAll('.question');
+
+        questions.forEach(function (question) {
+            var questionId = question.getAttribute('data-questionid');
+            var selectedAnswer = question.querySelector('input[name="answer_' + questionId + '"]:checked');
+
+            if (selectedAnswer) {
+                formData.push({
+                    questionId: questionId,
+                    answerId: selectedAnswer.value
+                });
+            }
+        });
+
+        // You can do something with the formData, for example, send it to the server using AJAX
+        console.log(formData);
+    }
+</script>

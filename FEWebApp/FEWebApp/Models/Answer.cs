@@ -3,7 +3,7 @@
     public class Answer
     {
         public int Id { get; set; }
-        private String value {  get; set; }
+        public String value {  get; set; }
 
         public override string ToString()
         {
