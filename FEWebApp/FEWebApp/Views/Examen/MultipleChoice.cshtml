@@ -14,7 +14,7 @@
         <div>
             <h3>@relation.question.ToString()</h3>
             <ul>
-                @foreach (var answer in relation.answerList.Concat(new List<Answer> { relation.answer }).OrderBy(a => Guid.NewGuid()))
+                @foreach (var answer in relation.answerList.OrderBy(a => Guid.NewGuid()))
                 {
                     <li>
                         <label>
