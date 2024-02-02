@@ -1341,6 +1341,23 @@ namespace FEWebApp.Data
 
         }
 
+        public void reset() 
+        {
+            CGcompleted = false;
+            EtrePerfectCompleted = false;
+            WeekCompleted = false;
+            MonthCompleted = false;
+            ArticleCompleted = false;
+            NumberCompleted = false;
+            AdjetiveCompleted = false;
+            LieuCompleted = false;
+            FamilyCompleted = false;
+            NationsCompleted = false;
+            VocabularyCompleted = false;
+
+            _notes.Clear();
+        }
+
         public List<Relation> generateNotes(int items, string type, List<Relation> relations, List<String> answers)
         {
             if (!(type.Equals("Les Nationalites") || type.Equals("Extre Vocabulaire")))
