@@ -33,6 +33,21 @@ namespace FEWebApp.Controllers
             return RedirectToAction("Completed");
         }
 
+        public IActionResult McVocabulary()
+        {
+            if (!_repositorio.VocabularyCompleted)
+            {
+                var randomQuestions = _repositorio.getQuestionsVocabulary(10);
+                var relations = _repositorio.getAnswersVocabulary(randomQuestions);
+
+                _repositorio.preguntas = null;
+                _repositorio.preguntas = relations;
+
+                return View(relations);
+            }
+            return RedirectToAction("Completed");
+        }
+
         public IActionResult MCetrePresent()
         {
             if (!_repositorio.EtrePerfectCompleted)
@@ -338,6 +353,17 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Les Nationalites";
             var nationsQ = _repositorio.nations;
             var relations = _repositorio.getAnswersNationality(nationsQ);
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+
+            return View("ResultNationality", relations);
+        }
+
+        [HttpPost]
+        public IActionResult ProcessAnswersVocabulary(List<string> answers)
+        {
+            var numberQuestions = 10;
+            var typeCompleated = "Extre Vocabulaire";
+            var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
 
             return View("ResultNationality", relations);

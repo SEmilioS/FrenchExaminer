@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Réponse Courte";
+}
+
+@model List<Relation>
+
+<h1>Écrire sur le blanc le nom des objets.</h1>
+
+<form method="post" action="/Examen/ProcessAnswersVocabulary">
+    @foreach (var relation in Model)
+    {
+        var question = relation.question;
+        var img = relation.img;
+
+        <div>
+            @if (img != null)
+            {
+                <img src="@img.ImageBase64" alt="img" width="250" height="150" />
+            }
+
+            <h3>@question.value</h3>
+
+            <label for="answers[@Model.IndexOf(relation)]">Réponse :</label>
+            <input type="text" name="answers[@Model.IndexOf(relation)]" required />
+        </div>
+        <hr />
+    }
+
+    <button type="submit">Submit</button>
+</form>

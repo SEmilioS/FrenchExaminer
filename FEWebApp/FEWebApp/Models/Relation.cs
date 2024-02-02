@@ -7,5 +7,6 @@
         public List<Answer> answerList { get; set;}
         public Answer selectedItem { get; set; }
         public int grade { get; set; }
+        public Image img { get; set; }
     }
 }
