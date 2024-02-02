@@ -14,12 +14,14 @@ namespace FEWebApp.Data
         private List<Question> _questionArticle = new List<Question>();
         private List<Question> _questionNumbers = new List<Question>();
         private List<Question> _questionAdjetive = new List<Question>();
+        private List<Question> _questionLieu = new List<Question>();
         private List<Relation> _relations = new List<Relation>();
         private List<Answer> _answersEtrePresent = new List<Answer>();
         private List<Answer> _answerJoursSemaine = new List<Answer>();
         private List<Answer> _answersMonths = new List<Answer>();
         private List<Answer> _answersArticle = new List<Answer>();
         private List<Answer> _answersNumbers = new List<Answer>();
+        private List<Answer> _answersLieu = new List<Answer>();
 
         public List<Relation> preguntas = new List<Relation>();
         public int gradeCG = 0;
@@ -29,6 +31,7 @@ namespace FEWebApp.Data
         public int gradeArticle = 0;
         public int gradeNumbers = 0;
         public int gradeAdjetive = 0;
+        public int gradeLieu = 0;
         public bool CGcompleted = false;
         public bool EtrePerfectCompleted = false;
         public bool WeekCompleted = false;
@@ -36,6 +39,7 @@ namespace FEWebApp.Data
         public bool ArticleCompleted = false;
         public bool NumberCompleted = false;
         public bool AdjetiveCompleted = false;
+        public bool LieuCompleted = false;
 
         public DB()
         {
@@ -211,6 +215,24 @@ namespace FEWebApp.Data
             var question152 = new Question { Id = 152, value = "La voiture est très ____. (féminin)" };
             var question153 = new Question { Id = 153, value = "Ce bâtiment est très ____. (masculin)" };
             var question154 = new Question { Id = 154, value = "Ce bâtiment est très ____. (féminin)" };
+
+            //Sample question for Prepositions of lengh
+            var question155 = new Question { Id = 155, value = "Le stylo est ____ la table. (en)" };
+            var question156 = new Question { Id = 156, value = "Le chat est ____ la chaise. (sobre)" };
+            var question157 = new Question { Id = 157, value = "Le livre est ____ la bibliothèque. (bajo)" };
+            var question158 = new Question { Id = 158, value = "La télévision est ____ moi. (delante)" };
+            var question159 = new Question { Id = 159, value = "Le vélo est ____ la maison. (detrás)" };
+            var question160 = new Question { Id = 160, value = "Les clés sont ____ le tiroir. (dentro)" };
+            var question161 = new Question { Id = 161, value = "Le restaurant est ____ l'épicerie. (cerca de)" };
+            var question162 = new Question { Id = 162, value = "La plage est ____ la ville. (lejos de)" };
+            var question163 = new Question { Id = 163, value = "La poste est ____ l'école. (frente a)" };
+            var question164 = new Question { Id = 164, value = "Le parc est ____ la bibliothèque. (al lado de)" };
+            var question165 = new Question { Id = 165, value = "Le monument est ____ les deux rues. (en medio de)" };
+            var question166 = new Question { Id = 166, value = "____ les deux bâtiments, il y a un jardin. (entre)" };
+            var question167 = new Question { Id = 167, value = "Le colis est ____ la porte. (a la par de)" };
+            var question168 = new Question { Id = 168, value = "Il est ____ le vent. (contra)" };
+
+
 
 
 
@@ -414,6 +436,23 @@ namespace FEWebApp.Data
             var answer189 = new Answer { Id = 189, value = "intéressante" };
             var answer190 = new Answer { Id = 190, value = "élégante" };
 
+            //Sample answers prepositions de lieu
+            var answer191 = new Answer { Id = 191, value = "sur" };
+            var answer192 = new Answer { Id = 192, value = "sous" };
+            var answer193 = new Answer { Id = 193, value = "dans" };
+            var answer194 = new Answer { Id = 194, value = "devant" };
+            var answer195 = new Answer { Id = 195, value = "derrière" };
+            var answer196 = new Answer { Id = 196, value = "à côté de" };
+            var answer197 = new Answer { Id = 197, value = "au milieu de" };
+            var answer198 = new Answer { Id = 198, value = "entre" };
+            var answer199 = new Answer { Id = 199, value = "près de" };
+            var answer200 = new Answer { Id = 200, value = "loin de" };
+            var answer201 = new Answer { Id = 201, value = "en face de" };
+            var answer202 = new Answer { Id = 202, value = "contre" };
+            var answer203 = new Answer { Id = 203, value = "par" };
+            var answer204 = new Answer { Id = 204, value = "à" };
+
+
 
             // Sample Relations
             var relation1 = new Relation { question = question1, answer = answer1, answerList = new List<Answer> { answer6, answer7, answer8} };
@@ -578,6 +617,22 @@ namespace FEWebApp.Data
             var relation153 = new Relation { question = question153, answer = answer183, answerList = new List<Answer> { answer190, answer188, answer186} };
             var relation154 = new Relation { question = question154, answer = answer189, answerList = new List<Answer> { answer181, answer183, answer182} };
 
+            var relation155 = new Relation { question = question155, answer = answer204, answerList = _answersLieu };
+            var relation156 = new Relation { question = question156, answer = answer191, answerList = _answersLieu };
+            var relation157 = new Relation { question = question157, answer = answer192, answerList = _answersLieu };
+            var relation158 = new Relation { question = question158, answer = answer194, answerList = _answersLieu };
+            var relation159 = new Relation { question = question159, answer = answer195, answerList = _answersLieu };
+            var relation160 = new Relation { question = question160, answer = answer193, answerList = _answersLieu };
+            var relation161 = new Relation { question = question161, answer = answer199, answerList = _answersLieu };
+            var relation162 = new Relation { question = question162, answer = answer200, answerList = _answersLieu };
+            var relation163 = new Relation { question = question163, answer = answer201, answerList = _answersLieu };
+            var relation164 = new Relation { question = question164, answer = answer196, answerList = _answersLieu };
+            var relation165 = new Relation { question = question165, answer = answer197, answerList = _answersLieu };
+            var relation166 = new Relation { question = question166, answer = answer198, answerList = _answersLieu };
+            var relation167 = new Relation { question = question167, answer = answer203, answerList = _answersLieu };
+            var relation168 = new Relation { question = question168, answer = answer202, answerList = _answersLieu };
+
+
 
             _answersEtrePresent.Add(answer48);
             _answersEtrePresent.Add(answer49);
@@ -685,6 +740,21 @@ namespace FEWebApp.Data
             _answersNumbers.Add(answer176);
             _answersNumbers.Add(answer177);
             _answersNumbers.Add(answer178);
+
+            _answersLieu.Add(answer191);
+            _answersLieu.Add(answer192);
+            _answersLieu.Add(answer193);
+            _answersLieu.Add(answer194);
+            _answersLieu.Add(answer195);
+            _answersLieu.Add(answer196);
+            _answersLieu.Add(answer197);
+            _answersLieu.Add(answer198);
+            _answersLieu.Add(answer199);
+            _answersLieu.Add(answer200);
+            _answersLieu.Add(answer201);
+            _answersLieu.Add(answer202);
+            _answersLieu.Add(answer203);
+            _answersLieu.Add(answer204);
 
             // Add questions, answers, and relations to the lists
             _questionsCG.Add(question1);
@@ -847,6 +917,21 @@ namespace FEWebApp.Data
             _questionAdjetive.Add(question153);
             _questionAdjetive.Add(question154);
 
+            _questionLieu.Add(question155);
+            _questionLieu.Add(question156);
+            _questionLieu.Add(question157);
+            _questionLieu.Add(question158);
+            _questionLieu.Add(question159);
+            _questionLieu.Add(question160);
+            _questionLieu.Add(question161);
+            _questionLieu.Add(question162);
+            _questionLieu.Add(question163);
+            _questionLieu.Add(question164);
+            _questionLieu.Add(question165);
+            _questionLieu.Add(question166);
+            _questionLieu.Add(question167);
+            _questionLieu.Add(question168);
+
 
             _relations.Add(relation1);
             _relations.Add(relation2);
@@ -1001,6 +1086,20 @@ namespace FEWebApp.Data
             _relations.Add(relation152);
             _relations.Add(relation153);
             _relations.Add(relation154);
+            _relations.Add(relation155);
+            _relations.Add(relation156);
+            _relations.Add(relation157);
+            _relations.Add(relation158);
+            _relations.Add(relation159);
+            _relations.Add(relation160);
+            _relations.Add(relation161);
+            _relations.Add(relation162);
+            _relations.Add(relation163);
+            _relations.Add(relation164);
+            _relations.Add(relation165);
+            _relations.Add(relation166);
+            _relations.Add(relation167);
+            _relations.Add(relation168);
 
         }
 
@@ -1324,6 +1423,53 @@ namespace FEWebApp.Data
                 if (question.Id >= 145 && question.Id <= 154)
                 {
                     var questionDTO = _questionAdjetive.FirstOrDefault(q => q.ToString() == question.ToString());
+
+                    if (questionDTO != null)
+                    {
+                        var relationDTO = _relations.FirstOrDefault(r => r.question?.Id == questionDTO.Id);
+
+                        if (relationDTO != null)
+                        {
+                            result.Add(relationDTO);
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public List<Question> getQuestionsLieu(int quantity)
+        {
+            List<Question> selectedQuestions = new List<Question>();
+            HashSet<Question> selectedQuestionSet = new HashSet<Question>();
+
+            quantity = Math.Min(quantity, _questionLieu.Count);
+
+            List<Question> shuffledQuestions = _questionLieu.OrderBy(q => Guid.NewGuid()).ToList();
+
+            for (int i = 0; i < shuffledQuestions.Count && selectedQuestions.Count < quantity; i++)
+            {
+                Question question = shuffledQuestions[i];
+
+                if (selectedQuestionSet.Add(question))
+                {
+                    selectedQuestions.Add(question);
+                }
+            }
+
+            return selectedQuestions;
+        }
+
+        public List<Relation> getAnswersLieu(List<Question> questions)
+        {
+            List<Relation> result = new List<Relation>();
+
+            foreach (var question in questions)
+            {
+                if (question.Id >= 155 && question.Id <= 168)
+                {
+                    var questionDTO = _questionLieu.FirstOrDefault(q => q.ToString() == question.ToString());
 
                     if (questionDTO != null)
                     {
