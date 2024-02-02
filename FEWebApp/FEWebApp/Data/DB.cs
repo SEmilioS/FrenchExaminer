@@ -15,6 +15,7 @@ namespace FEWebApp.Data
         private List<Question> _questionNumbers = new List<Question>();
         private List<Question> _questionAdjetive = new List<Question>();
         private List<Question> _questionLieu = new List<Question>();
+        private List<Question> _questionsFamily = new List<Question>();
         private List<Relation> _relations = new List<Relation>();
         private List<Answer> _answersEtrePresent = new List<Answer>();
         private List<Answer> _answerJoursSemaine = new List<Answer>();
@@ -32,6 +33,7 @@ namespace FEWebApp.Data
         public int gradeNumbers = 0;
         public int gradeAdjetive = 0;
         public int gradeLieu = 0;
+        public int gradeFamily = 0;
         public bool CGcompleted = false;
         public bool EtrePerfectCompleted = false;
         public bool WeekCompleted = false;
@@ -40,6 +42,7 @@ namespace FEWebApp.Data
         public bool NumberCompleted = false;
         public bool AdjetiveCompleted = false;
         public bool LieuCompleted = false;
+        public bool FamilyCompleted = false;
 
         public DB()
         {
@@ -232,6 +235,16 @@ namespace FEWebApp.Data
             var question167 = new Question { Id = 167, value = "Le colis est ____ la porte. (a la par de)" };
             var question168 = new Question { Id = 168, value = "Il est ____ le vent. (contra)" };
 
+            var question169 = new Question { Id = 169, value = "Roberto est ____ de Xinia et Jennie" };
+            var question170 = new Question { Id = 170, value = "Luis est ____ de Segio et Pilar" };
+            var question171 = new Question { Id = 171, value = "Ricardo et Jennie sont ____ de Juan et María" };
+            var question172 = new Question { Id = 172, value = "Silvia est ____ de Xinia" };
+            var question173 = new Question { Id = 173, value = "Jennie est ____ de Ricardo" };
+            var question174 = new Question { Id = 174, value = "Segio et Pilar sont ____ de Xinia" };
+            var question175 = new Question { Id = 176, value = "Oaula est ____ de María" };
+            var question176 = new Question { Id = 177, value = "Cedric est ____ de Xinia" };
+            var question177 = new Question { Id = 178, value = "Jennie est ____ de Paula" };
+            var question178 = new Question { Id = 179, value = "L'image correspond a" };
 
 
 
@@ -452,6 +465,31 @@ namespace FEWebApp.Data
             var answer203 = new Answer { Id = 203, value = "par" };
             var answer204 = new Answer { Id = 204, value = "à" };
 
+            //Sample answers family
+            var answer205 = new Answer { Id = 205, value = "le grande-pere" };
+            var answer206 = new Answer { Id = 206, value = "le beau-pere" };
+            var answer207 = new Answer { Id = 207, value = "le pere" };
+            var answer208 = new Answer { Id = 208, value = "le cousin" };
+            var answer209 = new Answer { Id = 209, value = "le fils" };
+            var answer210 = new Answer { Id = 210, value = "le neveu" };
+            var answer211 = new Answer { Id = 211, value = "les petits-enfants" };
+            var answer212 = new Answer { Id = 212, value = "les neveux" };
+            var answer213 = new Answer { Id = 213, value = "les enfants" };
+            var answer214 = new Answer { Id = 214, value = "la tante" };
+            var answer215 = new Answer { Id = 215, value = "la soeur" };
+            var answer216 = new Answer { Id = 216, value = "la grand-mere" };
+            var answer217 = new Answer { Id = 217, value = "la niéce" };
+            var answer218 = new Answer { Id = 218, value = "la fille" };
+            var answer219 = new Answer { Id = 219, value = "les parents" };
+            var answer220 = new Answer { Id = 220, value = "les oncles" };
+            var answer221 = new Answer { Id = 221, value = "la belle-mére" };
+            var answer222 = new Answer { Id = 222, value = "l'oncle" };
+            var answer223 = new Answer { Id = 223, value = "le pere" };
+            var answer224 = new Answer { Id = 224, value = "la petite-fille" };
+            var answer225 = new Answer { Id = 225, value = "la belle-fille" };
+            var answer226 = new Answer { Id = 226, value = "la sœur" };
+            var answer227 = new Answer { Id = 227, value = "la femme" };
+
 
 
             // Sample Relations
@@ -632,6 +670,16 @@ namespace FEWebApp.Data
             var relation167 = new Relation { question = question167, answer = answer203, answerList = _answersLieu };
             var relation168 = new Relation { question = question168, answer = answer202, answerList = _answersLieu };
 
+            var relation169 = new Relation { question = question169, answer = answer205, answerList = new List<Answer> { answer206, answer207 } };
+            var relation170 = new Relation { question = question170, answer = answer210, answerList = new List<Answer> { answer208, answer209 } };
+            var relation171 = new Relation { question = question171, answer = answer213, answerList = new List<Answer> { answer212, answer211 } };
+            var relation172 = new Relation { question = question172, answer = answer214, answerList = new List<Answer> { answer215, answer216 } };
+            var relation173 = new Relation { question = question173, answer = answer215, answerList = new List<Answer> { answer217, answer218 } };
+            var relation174 = new Relation { question = question174, answer = answer219, answerList = new List<Answer> { answer220, answer209 } };
+            var relation175 = new Relation { question = question175, answer = answer221, answerList = new List<Answer> { answer214, answer216 } };
+            var relation176 = new Relation { question = question176, answer = answer222, answerList = new List<Answer> { answer223, answer209 } };
+            var relation177 = new Relation { question = question177, answer = answer224, answerList = new List<Answer> { answer225, answer218 } };
+            var relation178 = new Relation { question = question178, answer = answer227, answerList = new List<Answer> { answer226, answer218 } };
 
 
             _answersEtrePresent.Add(answer48);
@@ -932,6 +980,17 @@ namespace FEWebApp.Data
             _questionLieu.Add(question167);
             _questionLieu.Add(question168);
 
+            _questionsFamily.Add(question169);
+            _questionsFamily.Add(question170);
+            _questionsFamily.Add(question171);
+            _questionsFamily.Add(question172);
+            _questionsFamily.Add(question173);
+            _questionsFamily.Add(question174);
+            _questionsFamily.Add(question175);
+            _questionsFamily.Add(question176);
+            _questionsFamily.Add(question177);
+            _questionsFamily.Add(question178);
+
 
             _relations.Add(relation1);
             _relations.Add(relation2);
@@ -1100,6 +1159,16 @@ namespace FEWebApp.Data
             _relations.Add(relation166);
             _relations.Add(relation167);
             _relations.Add(relation168);
+            _relations.Add(relation169);
+            _relations.Add(relation170);
+            _relations.Add(relation171);
+            _relations.Add(relation172);
+            _relations.Add(relation173);
+            _relations.Add(relation174);
+            _relations.Add(relation175);
+            _relations.Add(relation176);
+            _relations.Add(relation177);
+            _relations.Add(relation178);
 
         }
 
@@ -1470,6 +1539,53 @@ namespace FEWebApp.Data
                 if (question.Id >= 155 && question.Id <= 168)
                 {
                     var questionDTO = _questionLieu.FirstOrDefault(q => q.ToString() == question.ToString());
+
+                    if (questionDTO != null)
+                    {
+                        var relationDTO = _relations.FirstOrDefault(r => r.question?.Id == questionDTO.Id);
+
+                        if (relationDTO != null)
+                        {
+                            result.Add(relationDTO);
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public List<Question> getQuestionsFamily(int quantity)
+        {
+            List<Question> selectedQuestions = new List<Question>();
+            HashSet<Question> selectedQuestionSet = new HashSet<Question>();
+
+            quantity = Math.Min(quantity, _questionsFamily.Count);
+
+            List<Question> shuffledQuestions = _questionsFamily.OrderBy(q => Guid.NewGuid()).ToList();
+
+            for (int i = 0; i < shuffledQuestions.Count && selectedQuestions.Count < quantity; i++)
+            {
+                Question question = shuffledQuestions[i];
+
+                if (selectedQuestionSet.Add(question))
+                {
+                    selectedQuestions.Add(question);
+                }
+            }
+
+            return selectedQuestions;
+        }
+
+        public List<Relation> getAnswersFamily(List<Question> questions)
+        {
+            List<Relation> result = new List<Relation>();
+
+            foreach (var question in questions)
+            {
+                if (question.Id >= 169 && question.Id <= 178)
+                {
+                    var questionDTO = _questionsFamily.FirstOrDefault(q => q.ToString() == question.ToString());
 
                     if (questionDTO != null)
                     {
