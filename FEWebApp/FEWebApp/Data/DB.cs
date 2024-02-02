@@ -123,22 +123,23 @@ namespace FEWebApp.Data
             var question58 = new Question { Id = 58, value = "Comment dit-on 'Diciembre' en français ?" };
 
             //Sample questions, Articles definites and indefinites
-            var question59 = new Question { Id = 59, value = "Quel est ____ nom français pour 'chaise'?" };
-            var question60 = new Question { Id = 60, value = "Comment dit-on 'lake' en français? ____ réponse commence par 'l.'" };
-            var question61 = new Question { Id = 61, value = "Quel est ____ contraire de 'femme'?" };
-            var question62 = new Question { Id = 62, value = "Donne-moi ____ noms des mois de l'année." };
-            var question63 = new Question { Id = 63, value = "Quel article indéfini doit-on utiliser devant le mot 'éléphant'?" };
-            var question64 = new Question { Id = 64, value = "Complète la phrase : 'J'ai vu ____ petite maison dans ____ village.'" };
-            var question65 = new Question { Id = 65, value = "Donne ____ exemple d'un fruit qui commence par la lettre 'p'." };
-            var question66 = new Question { Id = 66, value = "Trouve ____ synonyme pour ____ mot dans cette phrase : 'C'est ____ film intéressant.'" };
-            var question67 = new Question { Id = 67, value = "Quel est ____ traduction française de 'soleil'?" };
-            var question68 = new Question { Id = 68, value = "Donne-moi ____ adjectif qui commence par 'l'." };
-            var question69 = new Question { Id = 69, value = "Trouve ____ nom d'une ville en France qui commence par 'P'." };
-            var question70 = new Question { Id = 70, value = "Complète la phrase : 'J'ai visité ____ Tour Eiffel à Paris.'" };
-            var question71 = new Question { Id = 71, value = "Quel article indéfini doit-on utiliser devant le mot 'amie'?" };
-            var question72 = new Question { Id = 72, value = "Trouve ____ adjectif qui commence par 'd'." };
-            var question73 = new Question { Id = 73, value = "Donne ____ exemple d'un instrument de musique." };
-            var question74 = new Question { Id = 74, value = "Complète la phrase : 'J'ai acheté ____ robe pour ____ soirée.'" };
+            var question59 = new Question { Id = 59, value = "____ tableau" };  //le
+            var question60 = new Question { Id = 60, value = "____ lac" };  //le
+            var question61 = new Question { Id = 61, value = "____ opposé" };  //le
+            var question62 = new Question { Id = 62, value = "____ mois" };  //les
+            var question63 = new Question { Id = 63, value = "____ éléphant" };  //un
+            var question64 = new Question { Id = 64, value = "____ petite" };  //une
+            var question65 = new Question { Id = 65, value = "____ fruit" };  //un
+            var question66 = new Question { Id = 66, value = "____ film" };  //un
+            var question67 = new Question { Id = 67, value = "____ traduction" };  //la
+            var question68 = new Question { Id = 68, value = "____ adjectif" };  //un
+            var question69 = new Question { Id = 69, value = "____ ville" };  //le
+            var question70 = new Question { Id = 70, value = "____ Tour Eiffel" };  //la
+            var question71 = new Question { Id = 71, value = "____ amie" };  //une
+            var question72 = new Question { Id = 72, value = "____ adjectif" };  //un
+            var question73 = new Question { Id = 73, value = "____ instrument" };  //un
+            var question74 = new Question { Id = 74, value = "____ colle" };  //une
+
 
             //Sample questions, numbers from 0 to 69
             var question75 = new Question { Id = 75, value = "Comment écrit-on 0 en français ?" };
@@ -578,24 +579,24 @@ namespace FEWebApp.Data
             var relation56 = new Relation { question = question57, answer = answer98, answerList = _answersMonths };
             var relation57 = new Relation { question = question58, answer = answer99, answerList = _answersMonths };
 
-            var relation59 = new Relation { question = question59, answer = answer101, answerList = _answersArticle };
+            var relation59 = new Relation { question = question59, answer = answer102, answerList = _answersArticle };
             var relation60 = new Relation { question = question60, answer = answer102, answerList = _answersArticle };
-            var relation61 = new Relation { question = question61, answer = answer103, answerList = _answersArticle };
-            var relation62 = new Relation { question = question62, answer = answer104, answerList = _answersArticle };
-            var relation63 = new Relation { question = question63, answer = answer101, answerList = _answersArticle };
-            var relation64 = new Relation { question = question64, answer = answer102, answerList = _answersArticle };
-            var relation65 = new Relation { question = question65, answer = answer103, answerList = _answersArticle };
-            var relation66 = new Relation { question = question66, answer = answer104, answerList = _answersArticle };
+            var relation61 = new Relation { question = question61, answer = answer102, answerList = _answersArticle };
+            var relation62 = new Relation { question = question62, answer = answer103, answerList = _answersArticle };
+            var relation63 = new Relation { question = question63, answer = answer105, answerList = _answersArticle };
+            var relation64 = new Relation { question = question64, answer = answer106, answerList = _answersArticle };
+            var relation65 = new Relation { question = question65, answer = answer105, answerList = _answersArticle };
+            var relation66 = new Relation { question = question66, answer = answer105, answerList = _answersArticle };
 
 
-            var relation67 = new Relation { question = question67, answer = answer105, answerList = _answersArticle };
-            var relation68 = new Relation { question = question68, answer = answer106, answerList = _answersArticle };
-            var relation69 = new Relation { question = question69, answer = answer107, answerList = _answersArticle };
-            var relation70 = new Relation { question = question70, answer = answer108, answerList = _answersArticle };
-            var relation71 = new Relation { question = question71, answer = answer105, answerList = _answersArticle };
-            var relation72 = new Relation { question = question72, answer = answer106, answerList = _answersArticle };
-            var relation73 = new Relation { question = question73, answer = answer107, answerList = _answersArticle };
-            var relation74 = new Relation { question = question74, answer = answer108, answerList = _answersArticle };
+            var relation67 = new Relation { question = question67, answer = answer104, answerList = _answersArticle };
+            var relation68 = new Relation { question = question68, answer = answer105, answerList = _answersArticle };
+            var relation69 = new Relation { question = question69, answer = answer102, answerList = _answersArticle };
+            var relation70 = new Relation { question = question70, answer = answer104, answerList = _answersArticle };
+            var relation71 = new Relation { question = question71, answer = answer106, answerList = _answersArticle };
+            var relation72 = new Relation { question = question72, answer = answer105, answerList = _answersArticle };
+            var relation73 = new Relation { question = question73, answer = answer105, answerList = _answersArticle };
+            var relation74 = new Relation { question = question74, answer = answer106, answerList = _answersArticle };
 
             var relation75 = new Relation { question = question75, answer = answer109, answerList = _answersNumbers };
             var relation76 = new Relation { question = question76, answer = answer110, answerList = _answersNumbers };
