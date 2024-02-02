@@ -19,11 +19,13 @@
             @foreach (var answer in relation.answerList)
             {
                 <li>
-                    Answer Choice: @answer.ToString()
-                    @if (answer == relation.selectedItem)
-                    {
-                        <strong>(Sélectionné)</strong>
-                    }
+                    <label style="color: @(answer == relation.answer ? "blue" : "black")">
+                        Answer Choice: @answer.ToString()
+                        @if (answer == relation.selectedItem)
+                        {
+                            <strong>(Sélectionné)</strong>
+                        }
+                    </label>
                 </li>
             }
         </ul>
