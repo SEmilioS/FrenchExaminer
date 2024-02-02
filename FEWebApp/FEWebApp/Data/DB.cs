@@ -13,6 +13,7 @@ namespace FEWebApp.Data
         private List<Question> _questionMonth = new List<Question>();
         private List<Question> _questionArticle = new List<Question>();
         private List<Question> _questionNumbers = new List<Question>();
+        private List<Question> _questionAdjetive = new List<Question>();
         private List<Relation> _relations = new List<Relation>();
         private List<Answer> _answersEtrePresent = new List<Answer>();
         private List<Answer> _answerJoursSemaine = new List<Answer>();
@@ -27,12 +28,14 @@ namespace FEWebApp.Data
         public int gradeMonth = 0;
         public int gradeArticle = 0;
         public int gradeNumbers = 0;
+        public int gradeAdjetive = 0;
         public bool CGcompleted = false;
         public bool EtrePerfectCompleted = false;
         public bool WeekCompleted = false;
         public bool MonthCompleted = false;
         public bool ArticleCompleted = false;
         public bool NumberCompleted = false;
+        public bool AdjetiveCompleted = false;
 
         public DB()
         {
@@ -196,6 +199,20 @@ namespace FEWebApp.Data
             var question142 = new Question { Id = 142, value = "Comment écrit-on 67 en français ?" };
             var question143 = new Question { Id = 143, value = "Comment écrit-on 68 en français ?" };
             var question144 = new Question { Id = 144, value = "Comment écrit-on 69 en français ?" };
+
+            //Sample questions, adjective qualificatif
+            var question145 = new Question { Id = 145, value = "Cet animal est très ____. (masculin)" };
+            var question146 = new Question { Id = 146, value = "Cet animal est très ____. (féminin)" };
+            var question147 = new Question { Id = 147, value = "Cette personne est très ____. (masculin)" };
+            var question148 = new Question { Id = 148, value = "Cette personne est très ____. (féminin)" };
+            var question149 = new Question { Id = 149, value = "Le livre est très ____. (masculin)" };
+            var question150 = new Question { Id = 150, value = "Le livre est très ____. (féminin)" };
+            var question151 = new Question { Id = 151, value = "La voiture est très ____. (masculin)" };
+            var question152 = new Question { Id = 152, value = "La voiture est très ____. (féminin)" };
+            var question153 = new Question { Id = 153, value = "Ce bâtiment est très ____. (masculin)" };
+            var question154 = new Question { Id = 154, value = "Ce bâtiment est très ____. (féminin)" };
+
+
 
 
 
@@ -382,8 +399,20 @@ namespace FEWebApp.Data
             var answer177 = new Answer { Id = 177, value = "soixante-huit" };
             var answer178 = new Answer { Id = 178, value = "soixante-neuf" };
 
+            //Sample answers adjetives
+            var answer179 = new Answer { Id = 179, value = "grand" };
+            var answer180 = new Answer { Id = 180, value = "heureux" };
+            var answer181 = new Answer { Id = 181, value = "coloré" };
+            var answer182 = new Answer { Id = 182, value = "veuf" };
+            var answer183 = new Answer { Id = 183, value = "intéressant" };
+            var answer184 = new Answer { Id = 184, value = "élégant" };
 
-
+            var answer185 = new Answer { Id = 185, value = "grande" };
+            var answer186 = new Answer { Id = 186, value = "heureuse" };
+            var answer187 = new Answer { Id = 187, value = "colorée" };
+            var answer188 = new Answer { Id = 188, value = "veuve" };
+            var answer189 = new Answer { Id = 189, value = "intéressante" };
+            var answer190 = new Answer { Id = 190, value = "élégante" };
 
 
             // Sample Relations
@@ -537,6 +566,17 @@ namespace FEWebApp.Data
             var relation142 = new Relation { question = question142, answer = answer176, answerList = _answersNumbers };
             var relation143 = new Relation { question = question143, answer = answer177, answerList = _answersNumbers };
             var relation144 = new Relation { question = question144, answer = answer178, answerList = _answersNumbers };
+
+            var relation145 = new Relation { question = question145, answer = answer179, answerList = new List<Answer> { answer188, answer190, answer185 } };
+            var relation146 = new Relation { question = question146, answer = answer185, answerList = new List<Answer> { answer184, answer181, answer180 } };
+            var relation147 = new Relation { question = question147, answer = answer180, answerList = new List<Answer> { answer185, answer186, answer190 } };
+            var relation148 = new Relation { question = question148, answer = answer186, answerList = new List<Answer> { answer179, answer183, answer184 } };
+            var relation149 = new Relation { question = question149, answer = answer181, answerList = new List<Answer> { answer185, answer189, answer187 } };
+            var relation150 = new Relation { question = question150, answer = answer187, answerList = new List<Answer> { answer183, answer180, answer179} };
+            var relation151 = new Relation { question = question151, answer = answer182, answerList = new List<Answer> { answer185, answer190, answer187} };
+            var relation152 = new Relation { question = question152, answer = answer188, answerList = new List<Answer> { answer179, answer183, answer184} };
+            var relation153 = new Relation { question = question153, answer = answer183, answerList = new List<Answer> { answer190, answer188, answer186} };
+            var relation154 = new Relation { question = question154, answer = answer189, answerList = new List<Answer> { answer181, answer183, answer182} };
 
 
             _answersEtrePresent.Add(answer48);
@@ -796,7 +836,16 @@ namespace FEWebApp.Data
             _questionNumbers.Add(question143);
             _questionNumbers.Add(question144);
 
-
+            _questionAdjetive.Add(question145);
+            _questionAdjetive.Add(question146);
+            _questionAdjetive.Add(question147);
+            _questionAdjetive.Add(question148);
+            _questionAdjetive.Add(question149);
+            _questionAdjetive.Add(question150);
+            _questionAdjetive.Add(question151);
+            _questionAdjetive.Add(question152);
+            _questionAdjetive.Add(question153);
+            _questionAdjetive.Add(question154);
 
 
             _relations.Add(relation1);
@@ -942,10 +991,16 @@ namespace FEWebApp.Data
             _relations.Add(relation142);
             _relations.Add(relation143);
             _relations.Add(relation144);
-
-
-
-
+            _relations.Add(relation145);
+            _relations.Add(relation146);
+            _relations.Add(relation147);
+            _relations.Add(relation148);
+            _relations.Add(relation149);
+            _relations.Add(relation150);
+            _relations.Add(relation151);
+            _relations.Add(relation152);
+            _relations.Add(relation153);
+            _relations.Add(relation154);
 
         }
 
@@ -1237,6 +1292,54 @@ namespace FEWebApp.Data
 
             return result;
         }
+
+        public List<Question> getQuestionsAdjetive(int quantity)
+        {
+            List<Question> selectedQuestions = new List<Question>();
+            HashSet<Question> selectedQuestionSet = new HashSet<Question>();
+
+            quantity = Math.Min(quantity, _questionAdjetive.Count);
+
+            List<Question> shuffledQuestions = _questionAdjetive.OrderBy(q => Guid.NewGuid()).ToList();
+
+            for (int i = 0; i < shuffledQuestions.Count && selectedQuestions.Count < quantity; i++)
+            {
+                Question question = shuffledQuestions[i];
+
+                if (selectedQuestionSet.Add(question))
+                {
+                    selectedQuestions.Add(question);
+                }
+            }
+
+            return selectedQuestions;
+        }
+
+        public List<Relation> getAnswersAdjetive(List<Question> questions)
+        {
+            List<Relation> result = new List<Relation>();
+
+            foreach (var question in questions)
+            {
+                if (question.Id >= 145 && question.Id <= 154)
+                {
+                    var questionDTO = _questionAdjetive.FirstOrDefault(q => q.ToString() == question.ToString());
+
+                    if (questionDTO != null)
+                    {
+                        var relationDTO = _relations.FirstOrDefault(r => r.question?.Id == questionDTO.Id);
+
+                        if (relationDTO != null)
+                        {
+                            result.Add(relationDTO);
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
 
     }
 }
