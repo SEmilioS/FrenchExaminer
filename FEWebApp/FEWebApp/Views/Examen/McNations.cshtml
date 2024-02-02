@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Réponse Courte";
+}
+
+@model List<Question>
+
+<h1>Écrivez sur le blanc le féminin des nationalités.</h1>
+
+<form method="post" action="/Examen/ProcessAnswersNations">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        var question = Model[i];
+
+        <div>
+            <h3>@question.value</h3>
+
+            <label for="answers[@i]">Réponse :</label>
+            <input type="text" name="answers[@i]" required />
+        </div>
+        <hr />
+    }
+
+    <button type="submit">Submit</button>
+</form>

@@ -16,7 +16,9 @@ namespace FEWebApp.Data
         private List<Question> _questionAdjetive = new List<Question>();
         private List<Question> _questionLieu = new List<Question>();
         private List<Question> _questionsFamily = new List<Question>();
+        private List<Question> _questionsNations = new List<Question>();
         private List<Relation> _relations = new List<Relation>();
+        private List<Relation> _relationNationality = new List<Relation>();
         private List<Answer> _answersEtrePresent = new List<Answer>();
         private List<Answer> _answerJoursSemaine = new List<Answer>();
         private List<Answer> _answersMonths = new List<Answer>();
@@ -25,6 +27,7 @@ namespace FEWebApp.Data
         private List<Answer> _answersLieu = new List<Answer>();
 
         public List<Relation> preguntas = new List<Relation>();
+        public List<Question> nations = new List<Question>();
         public int gradeCG = 0;
         public int gradeEtrePresent = 0;
         public int gradeWeek = 0;
@@ -34,6 +37,7 @@ namespace FEWebApp.Data
         public int gradeAdjetive = 0;
         public int gradeLieu = 0;
         public int gradeFamily = 0;
+        public int gradeNations = 0;
         public bool CGcompleted = false;
         public bool EtrePerfectCompleted = false;
         public bool WeekCompleted = false;
@@ -43,6 +47,7 @@ namespace FEWebApp.Data
         public bool AdjetiveCompleted = false;
         public bool LieuCompleted = false;
         public bool FamilyCompleted = false;
+        public bool NationsCompleted = false;
 
         public DB()
         {
@@ -241,10 +246,19 @@ namespace FEWebApp.Data
             var question172 = new Question { Id = 172, value = "Silvia est ____ de Xinia" };
             var question173 = new Question { Id = 173, value = "Jennie est ____ de Ricardo" };
             var question174 = new Question { Id = 174, value = "Segio et Pilar sont ____ de Xinia" };
-            var question175 = new Question { Id = 176, value = "Oaula est ____ de María" };
-            var question176 = new Question { Id = 177, value = "Cedric est ____ de Xinia" };
-            var question177 = new Question { Id = 178, value = "Jennie est ____ de Paula" };
-            var question178 = new Question { Id = 179, value = "L'image correspond a" };
+            var question175 = new Question { Id = 175, value = "Oaula est ____ de María" };
+            var question176 = new Question { Id = 176, value = "Cedric est ____ de Xinia" };
+            var question177 = new Question { Id = 177, value = "Jennie est ____ de Paula" };
+            var question178 = new Question { Id = 178, value = "L'image correspond a" };
+
+            var question179 = new Question { Id = 179, value = "Costaricien: " };
+            var question180 = new Question { Id = 180, value = "Belge" };
+            var question181 = new Question { Id = 181, value = "Grec" };
+            var question182 = new Question { Id = 182, value = "Français" };
+            var question183 = new Question { Id = 183, value = "Guatémaltéque" };
+            var question184 = new Question { Id = 184, value = "Italien" };
+            var question185 = new Question { Id = 185, value = "Coréen" };
+            var question186 = new Question { Id = 186, value = "Japonais" };
 
 
 
@@ -490,6 +504,16 @@ namespace FEWebApp.Data
             var answer226 = new Answer { Id = 226, value = "la sœur" };
             var answer227 = new Answer { Id = 227, value = "la femme" };
 
+            //Sample answers nationality
+            var answer228 = new Answer { Id = 228, value = "Costaricienne" };
+            var answer229 = new Answer { Id = 229, value = "Belge" };
+            var answer230 = new Answer { Id = 230, value = "Grecque" };
+            var answer231 = new Answer { Id = 231, value = "Francaise" };
+            var answer232 = new Answer { Id = 232, value = "Guatemalteque" };
+            var answer233 = new Answer { Id = 233, value = "Italienne" };
+            var answer234 = new Answer { Id = 234, value = "Coreenne" };
+            var answer235 = new Answer { Id = 235, value = "Japonaise" };
+
 
 
             // Sample Relations
@@ -681,6 +705,23 @@ namespace FEWebApp.Data
             var relation177 = new Relation { question = question177, answer = answer224, answerList = new List<Answer> { answer225, answer218 } };
             var relation178 = new Relation { question = question178, answer = answer227, answerList = new List<Answer> { answer226, answer218 } };
 
+            var relation179 = new Relation { question = question179, answer = answer228 };
+            var relation180 = new Relation { question = question180, answer = answer229 };
+            var relation181 = new Relation { question = question181, answer = answer230 };
+            var relation182 = new Relation { question = question182, answer = answer231 };
+            var relation183 = new Relation { question = question183, answer = answer232 };
+            var relation184 = new Relation { question = question184, answer = answer233 };
+            var relation185 = new Relation { question = question185, answer = answer234 };
+            var relation186 = new Relation { question = question186, answer = answer235 };
+
+            _relationNationality.Add(relation179);
+            _relationNationality.Add(relation180);
+            _relationNationality.Add(relation181);
+            _relationNationality.Add(relation182);
+            _relationNationality.Add(relation183);
+            _relationNationality.Add(relation184);
+            _relationNationality.Add(relation185);
+            _relationNationality.Add(relation186);
 
             _answersEtrePresent.Add(answer48);
             _answersEtrePresent.Add(answer49);
@@ -991,6 +1032,15 @@ namespace FEWebApp.Data
             _questionsFamily.Add(question177);
             _questionsFamily.Add(question178);
 
+            _questionsNations.Add(question179);
+            _questionsNations.Add(question180);
+            _questionsNations.Add(question181);
+            _questionsNations.Add(question182);
+            _questionsNations.Add(question183);
+            _questionsNations.Add(question184);
+            _questionsNations.Add(question185);
+            _questionsNations.Add(question186);
+
 
             _relations.Add(relation1);
             _relations.Add(relation2);
@@ -1170,6 +1220,28 @@ namespace FEWebApp.Data
             _relations.Add(relation177);
             _relations.Add(relation178);
 
+        }
+
+        public List<Question> getQuestionsNation(int quantity)
+        {
+            List<Question> selectedQuestions = new List<Question>();
+            HashSet<Question> selectedQuestionSet = new HashSet<Question>();
+
+            quantity = Math.Min(quantity, _questionsNations.Count);
+
+            List<Question> shuffledQuestions = _questionsNations.OrderBy(q => Guid.NewGuid()).ToList();
+
+            for (int i = 0; i < shuffledQuestions.Count && selectedQuestions.Count < quantity; i++)
+            {
+                Question question = shuffledQuestions[i];
+
+                if (selectedQuestionSet.Add(question))
+                {
+                    selectedQuestions.Add(question);
+                }
+            }
+
+            return selectedQuestions;
         }
 
         public List<Question> GetQuestionsCG(int quantity)
@@ -1602,6 +1674,28 @@ namespace FEWebApp.Data
             return result;
         }
 
+        public List<Relation> getAnswersNationality(List<Question> questions) 
+        {
+            List<Relation> result = new List<Relation>();
+
+            foreach (var question in questions)
+            {
+                var questionDTO = _questionsNations.FirstOrDefault(q => q.ToString() == question.ToString());
+
+                if (questionDTO != null)
+                {
+                    var relationDTO = _relationNationality.FirstOrDefault(r => r.question?.Id == questionDTO.Id);
+
+                    if (relationDTO != null)
+                    {
+                        result.Add(relationDTO);
+                    }
+                }
+            }
+
+            return result;
+
+        }
 
     }
 }

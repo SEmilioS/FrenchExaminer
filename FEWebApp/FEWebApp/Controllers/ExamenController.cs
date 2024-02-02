@@ -19,6 +19,20 @@ namespace FEWebApp.Controllers
             return View();
         }
 
+        public IActionResult McNations()
+        {
+            if (!_repositorio.NationsCompleted)
+            {
+                var randomQuestions = _repositorio.getQuestionsNation(5);
+
+                _repositorio.nations = null;
+                _repositorio.nations = randomQuestions;
+
+                return View(randomQuestions);
+            }
+            return RedirectToAction("Completed");
+        }
+
         public IActionResult MCetrePresent()
         {
             if (!_repositorio.EtrePerfectCompleted)
@@ -595,6 +609,38 @@ namespace FEWebApp.Controllers
             return View("ResultMC", relations);
         }
 
+
+        [HttpPost]
+        public IActionResult ProcessAnswersNations(List<string> answers)
+        {
+            _repositorio.NationsCompleted = true;
+            var nationsQ = _repositorio.nations;
+            var relations = _repositorio.getAnswersNationality(nationsQ);
+
+            for (int i = 0; i < relations.Count; i++)
+            {
+                if (i < answers.Count)
+                {
+                    string selectedAnswer = answers[i].Trim().ToLower();
+
+                    relations[i].selectedItem = relations[i].answer.ToString().Trim().ToLower() == selectedAnswer
+                        ? relations[i].answer
+                        : null;
+
+                    relations[i].grade = relations[i].selectedItem != null ? 1 : 0;
+                }
+                else
+                {
+                    relations[i].grade = 0;
+                }
+            }
+
+
+
+            _repositorio.gradeNations = relations.Sum(a => a.grade);
+
+            return View("ResultNationality", relations);
+        }
         public IActionResult Completed() 
         {
             return View();

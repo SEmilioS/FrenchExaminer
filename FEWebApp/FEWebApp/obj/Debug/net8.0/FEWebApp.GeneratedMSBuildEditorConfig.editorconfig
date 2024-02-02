@@ -50,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE1DbW9udGguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/McNations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE1jTmF0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/MCnumbers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE1DbnVtYmVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -58,8 +62,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE1Dd2Vlay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/Notes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE5vdGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/ResultMC.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXFJlc3VsdE1DLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/ResultNationality.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXFJlc3VsdE5hdGlvbmFsaXR5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Home/Index.cshtml]
