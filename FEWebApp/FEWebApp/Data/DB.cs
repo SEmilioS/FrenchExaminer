@@ -122,6 +122,7 @@ namespace FEWebApp.Data
             var question57 = new Question { Id = 57, value = "Comment dit-on 'Noviembre' en français ?" };
             var question58 = new Question { Id = 58, value = "Comment dit-on 'Diciembre' en français ?" };
 
+
             //Sample questions, Articles definites and indefinites
             var question59 = new Question { Id = 59, value = "____ tableau" };  //le
             var question60 = new Question { Id = 60, value = "____ lac" };  //le
@@ -261,7 +262,10 @@ namespace FEWebApp.Data
             var question185 = new Question { Id = 185, value = "Coréen" };
             var question186 = new Question { Id = 186, value = "Japonais" };
 
-
+            var question187 = new Question { Id = 187, value = "Le fête des Mêres au Costa Rica on le fête au mois d'____" };
+            var question188 = new Question { Id = 188, value = "La Toussaint c'est en ____" };
+            var question189 = new Question { Id = 189, value = "On fête la Chandeleur en ____" };
+            var question190 = new Question { Id = 190, value = "Nous fêtons Noël sur ____" };
 
 
 
@@ -517,6 +521,7 @@ namespace FEWebApp.Data
 
 
 
+
             // Sample Relations
             var relation1 = new Relation { question = question1, answer = answer1, answerList = new List<Answer> { answer6, answer7, answer8} };
             var relation2 = new Relation { question = question2, answer = answer2, answerList = new List<Answer> { answer9, answer10, answer11 } };
@@ -715,6 +720,11 @@ namespace FEWebApp.Data
             var relation185 = new Relation { question = question185, answer = answer234 };
             var relation186 = new Relation { question = question186, answer = answer235 };
 
+            var relation187 = new Relation { question = question187, answer = answer95, answerList = _answersMonths };
+            var relation188 = new Relation { question = question188, answer = answer98, answerList = _answersMonths };
+            var relation189 = new Relation { question = question189, answer = answer89, answerList = _answersMonths };
+            var relation190 = new Relation { question = question190, answer = answer98, answerList = _answersMonths };
+
             _relationNationality.Add(relation179);
             _relationNationality.Add(relation180);
             _relationNationality.Add(relation181);
@@ -907,6 +917,10 @@ namespace FEWebApp.Data
             _questionMonth.Add(question56);
             _questionMonth.Add(question57);
             _questionMonth.Add(question58);
+            _questionMonth.Add(question187);
+            _questionMonth.Add(question188);
+            _questionMonth.Add(question189);
+            _questionMonth.Add(question190);
 
             _questionArticle.Add(question59);
             _questionArticle.Add(question60);
