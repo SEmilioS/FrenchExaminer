@@ -28,16 +28,8 @@ namespace FEWebApp.Data
 
         public List<Relation> preguntas = new List<Relation>();
         public List<Question> nations = new List<Question>();
-        public int gradeCG = 0;
-        public int gradeEtrePresent = 0;
-        public int gradeWeek = 0;
-        public int gradeMonth = 0;
-        public int gradeArticle = 0;
-        public int gradeNumbers = 0;
-        public int gradeAdjetive = 0;
-        public int gradeLieu = 0;
-        public int gradeFamily = 0;
-        public int gradeNations = 0;
+        public List<Note> _notes = new List<Note>();
+
         public bool CGcompleted = false;
         public bool EtrePerfectCompleted = false;
         public bool WeekCompleted = false;
@@ -48,6 +40,7 @@ namespace FEWebApp.Data
         public bool LieuCompleted = false;
         public bool FamilyCompleted = false;
         public bool NationsCompleted = false;
+        public bool VocabulatyCompleted = false;
 
         public DB()
         {
@@ -540,7 +533,7 @@ namespace FEWebApp.Data
 
 
             // Sample Relations
-            var relation1 = new Relation { question = question1, answer = answer1, answerList = new List<Answer> { answer6, answer7, answer8} };
+            var relation1 = new Relation { question = question1, answer = answer1, answerList = new List<Answer> { answer6, answer7, answer8 } };
             var relation2 = new Relation { question = question2, answer = answer2, answerList = new List<Answer> { answer9, answer10, answer11 } };
             var relation3 = new Relation { question = question3, answer = answer3, answerList = new List<Answer> { answer12, answer13, answer14 } };
             var relation4 = new Relation { question = question4, answer = answer4, answerList = new List<Answer> { answer12, answer16, answer3 } };
@@ -696,11 +689,11 @@ namespace FEWebApp.Data
             var relation147 = new Relation { question = question147, answer = answer180, answerList = new List<Answer> { answer185, answer186, answer190 } };
             var relation148 = new Relation { question = question148, answer = answer186, answerList = new List<Answer> { answer179, answer183, answer184 } };
             var relation149 = new Relation { question = question149, answer = answer181, answerList = new List<Answer> { answer185, answer189, answer187 } };
-            var relation150 = new Relation { question = question150, answer = answer187, answerList = new List<Answer> { answer183, answer180, answer179} };
-            var relation151 = new Relation { question = question151, answer = answer182, answerList = new List<Answer> { answer185, answer190, answer187} };
-            var relation152 = new Relation { question = question152, answer = answer188, answerList = new List<Answer> { answer179, answer183, answer184} };
-            var relation153 = new Relation { question = question153, answer = answer183, answerList = new List<Answer> { answer190, answer188, answer186} };
-            var relation154 = new Relation { question = question154, answer = answer189, answerList = new List<Answer> { answer181, answer183, answer182} };
+            var relation150 = new Relation { question = question150, answer = answer187, answerList = new List<Answer> { answer183, answer180, answer179 } };
+            var relation151 = new Relation { question = question151, answer = answer182, answerList = new List<Answer> { answer185, answer190, answer187 } };
+            var relation152 = new Relation { question = question152, answer = answer188, answerList = new List<Answer> { answer179, answer183, answer184 } };
+            var relation153 = new Relation { question = question153, answer = answer183, answerList = new List<Answer> { answer190, answer188, answer186 } };
+            var relation154 = new Relation { question = question154, answer = answer189, answerList = new List<Answer> { answer181, answer183, answer182 } };
 
             var relation155 = new Relation { question = question155, answer = answer204, answerList = _answersLieu };
             var relation156 = new Relation { question = question156, answer = answer191, answerList = _answersLieu };
@@ -1252,6 +1245,109 @@ namespace FEWebApp.Data
             _relations.Add(relation177);
             _relations.Add(relation178);
 
+        }
+
+        public List<Relation> generateNotes(int items, string type, List<Relation> relations, List<String> answers)
+        {
+            if (!type.Equals("Les Nationalites"))
+            {
+                foreach (var rel in relations)
+                {
+                    if (!rel.answerList.Contains(rel.answer))
+                    {
+                        rel.answerList.Add(rel.answer);
+                    }
+                }
+
+                for (int i = 0; i < relations.Count; i++)
+                {
+                    if (i < answers.Count)
+                    {
+                        string selectedAnswer = answers[i];
+
+                        relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
+
+                        if (relations[i].selectedItem == relations[i].answer)
+                        {
+                            relations[i].grade = 1;
+                        }
+                        else
+                        {
+                            relations[i].grade = 0;
+                        }
+                    }
+                    else
+                    {
+                        relations[i].grade = 0;
+                    }
+                }
+            }
+            else 
+            {
+
+                for (int i = 0; i < relations.Count; i++)
+                {
+                    if (i < answers.Count)
+                    {
+                        string selectedAnswer = answers[i].Trim().ToLower();
+
+                        relations[i].selectedItem = relations[i].answer.ToString().Trim().ToLower() == selectedAnswer? relations[i].answer: null;
+
+                        relations[i].grade = relations[i].selectedItem != null ? 1 : 0;
+                    }
+                    else
+                    {
+                        relations[i].grade = 0;
+                    }
+                }
+
+            }
+
+            var grade = relations.Sum(a => a.grade);
+
+            var note = new Note { name = type, items = items, total = grade };
+
+            _notes.Add(note);
+
+            switch (type) 
+            {
+                case "Culture Generale":
+                    CGcompleted = true;
+                    break;
+                case "Verbe Etre":
+                    EtrePerfectCompleted = true;
+                    break;
+                case "Jours de la Semaine":
+                    WeekCompleted = true;
+                    break;
+                case "Mois de l'annee":
+                    MonthCompleted = true;
+                    break;
+                case "Articles definis et indefinis":
+                    ArticleCompleted = true;
+                    break;
+                case "Noms de chiffres de 0 a 69":
+                    NumberCompleted = true;
+                    break;
+                case "Adjectifs qualificatifs":
+                    AdjetiveCompleted = true;
+                    break;
+                case "Prepositions de Lieu":
+                    LieuCompleted = true;
+                    break;
+                case "Le Famille":
+                    FamilyCompleted = true;
+                    break;
+                case "Les Nationalites":
+                    NationsCompleted = true;
+                    break;
+                case "Extre Vocabulaire":
+                    VocabulatyCompleted = true;
+                    break;
+            }
+
+            return relations;
+            
         }
 
         public List<Question> getQuestionsNation(int quantity)

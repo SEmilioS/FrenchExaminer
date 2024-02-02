@@ -1,0 +1,29 @@
+﻿@model List<Note>
+
+@{
+    ViewData["Title"] = "Notes";
+}
+
+<h1>Notes</h1>
+
+
+<div class="row">
+    @foreach (var note in Model)
+    {
+        <div class="text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@note.name</h5>
+                        <hr/>
+                        <h4 class="card-subtitle">@($"{note.total}/{note.items}")</h4>
+                        <hr/>
+                        <h5 class="card-subtitle">@($"{note.total*100/note.items}%")</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<a class="nav-link text-blue" asp-area="" asp-controller="Examen" asp-action="Index">Revenir à l'index</a>

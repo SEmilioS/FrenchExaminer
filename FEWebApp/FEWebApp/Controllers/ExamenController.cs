@@ -106,7 +106,7 @@ namespace FEWebApp.Controllers
         {
             if (!_repositorio.ArticleCompleted)
             {
-                var randomQuestions = _repositorio.getQuestionsArticle(20);
+                var randomQuestions = _repositorio.getQuestionsArticle(15);
                 var relations = _repositorio.getAnswersArticle(randomQuestions);
 
                 _repositorio.preguntas = null;
@@ -234,41 +234,10 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersCG(List<string> answers)
         {
-            _repositorio.CGcompleted = true;
+            var numberQuestions = 10;
+            var typeCompleated = "Culture Generale";
             var relations = _repositorio.preguntas;
-
-            foreach (var rel in relations)
-            {
-                if (!rel.answerList.Contains(rel.answer))
-                {
-                    rel.answerList.Add(rel.answer);
-                }
-            }
-
-            for (int i = 0; i < relations.Count; i++)
-            {
-                if (i < answers.Count)
-                {
-                    string selectedAnswer = answers[i];
-
-                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
-
-                    if (relations[i].selectedItem == relations[i].answer)
-                    {
-                        relations[i].grade = 1;
-                    }
-                    else
-                    {
-                        relations[i].grade = 0;
-                    }
-                }
-                else
-                {
-                    relations[i].grade = 0;
-                }
-            }
-
-            _repositorio.gradeCG = relations.Sum(a => a.grade);
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
 
             return View("ResultMC", relations);
         }
@@ -276,41 +245,10 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersEtrePresent(List<string> answers)
         {
-            _repositorio.EtrePerfectCompleted = true;
+            var numberQuestions = 10;
+            var typeCompleated = "Verbe Etre";
             var relations = _repositorio.preguntas;
-
-            foreach (var rel in relations)
-            {
-                if (!rel.answerList.Contains(rel.answer))
-                {
-                    rel.answerList.Add(rel.answer);
-                }
-            }
-
-            for (int i = 0; i < relations.Count; i++)
-            {
-                if (i < answers.Count)
-                {
-                    string selectedAnswer = answers[i];
-
-                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
-
-                    if (relations[i].selectedItem == relations[i].answer)
-                    {
-                        relations[i].grade = 1;
-                    }
-                    else
-                    {
-                        relations[i].grade = 0;
-                    }
-                }
-                else
-                {
-                    relations[i].grade = 0;
-                }
-            }
-
-            _repositorio.gradeEtrePresent = relations.Sum(a => a.grade);
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
 
             return View("ResultMC", relations);
         }
@@ -318,41 +256,10 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersWeek(List<string> answers)
         {
-            _repositorio.WeekCompleted = true;
+            var numberQuestions = 10;
+            var typeCompleated = "Jours de la Semaine";
             var relations = _repositorio.preguntas;
-
-            foreach (var rel in relations)
-            {
-                if (!rel.answerList.Contains(rel.answer))
-                {
-                    rel.answerList.Add(rel.answer);
-                }
-            }
-
-            for (int i = 0; i < relations.Count; i++)
-            {
-                if (i < answers.Count)
-                {
-                    string selectedAnswer = answers[i];
-
-                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
-
-                    if (relations[i].selectedItem == relations[i].answer)
-                    {
-                        relations[i].grade = 1;
-                    }
-                    else
-                    {
-                        relations[i].grade = 0;
-                    }
-                }
-                else
-                {
-                    relations[i].grade = 0;
-                }
-            }
-
-            _repositorio.gradeWeek = relations.Sum(a => a.grade);
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
 
             return View("ResultMC", relations);
         }
@@ -360,41 +267,10 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersMonth(List<string> answers)
         {
-            _repositorio.MonthCompleted = true;
+            var numberQuestions = 10;
+            var typeCompleated = "Mois de l'annee";
             var relations = _repositorio.preguntas;
-
-            foreach (var rel in relations)
-            {
-                if (!rel.answerList.Contains(rel.answer))
-                {
-                    rel.answerList.Add(rel.answer);
-                }
-            }
-
-            for (int i = 0; i < relations.Count; i++)
-            {
-                if (i < answers.Count)
-                {
-                    string selectedAnswer = answers[i];
-
-                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
-
-                    if (relations[i].selectedItem == relations[i].answer)
-                    {
-                        relations[i].grade = 1;
-                    }
-                    else
-                    {
-                        relations[i].grade = 0;
-                    }
-                }
-                else
-                {
-                    relations[i].grade = 0;
-                }
-            }
-
-            _repositorio.gradeMonth = relations.Sum(a => a.grade);
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
 
             return View("ResultMC", relations);
         }
@@ -402,41 +278,10 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersArticle(List<string> answers)
         {
-            _repositorio.ArticleCompleted = true;
+            var numberQuestions = 15;
+            var typeCompleated = "Articles definis et indefinis";
             var relations = _repositorio.preguntas;
-
-            foreach (var rel in relations)
-            {
-                if (!rel.answerList.Contains(rel.answer))
-                {
-                    rel.answerList.Add(rel.answer);
-                }
-            }
-
-            for (int i = 0; i < relations.Count; i++)
-            {
-                if (i < answers.Count)
-                {
-                    string selectedAnswer = answers[i];
-
-                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
-
-                    if (relations[i].selectedItem == relations[i].answer)
-                    {
-                        relations[i].grade = 1;
-                    }
-                    else
-                    {
-                        relations[i].grade = 0;
-                    }
-                }
-                else
-                {
-                    relations[i].grade = 0;
-                }
-            }
-
-            _repositorio.gradeArticle = relations.Sum(a => a.grade);
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
 
             return View("ResultMC", relations);
         }
@@ -444,41 +289,10 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersNumbers(List<string> answers)
         {
-            _repositorio.NumberCompleted = true;
+            var numberQuestions = 10;
+            var typeCompleated = "Noms de chiffres de 0 a 69";
             var relations = _repositorio.preguntas;
-
-            foreach (var rel in relations)
-            {
-                if (!rel.answerList.Contains(rel.answer))
-                {
-                    rel.answerList.Add(rel.answer);
-                }
-            }
-
-            for (int i = 0; i < relations.Count; i++)
-            {
-                if (i < answers.Count)
-                {
-                    string selectedAnswer = answers[i];
-
-                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
-
-                    if (relations[i].selectedItem == relations[i].answer)
-                    {
-                        relations[i].grade = 1;
-                    }
-                    else
-                    {
-                        relations[i].grade = 0;
-                    }
-                }
-                else
-                {
-                    relations[i].grade = 0;
-                }
-            }
-
-            _repositorio.gradeNumbers = relations.Sum(a => a.grade);
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
 
             return View("ResultMC", relations);
         }
@@ -486,41 +300,10 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersAdjetive(List<string> answers)
         {
-            _repositorio.AdjetiveCompleted = true;
+            var numberQuestions = 10;
+            var typeCompleated = "Adjectifs qualificatifs";
             var relations = _repositorio.preguntas;
-
-            foreach (var rel in relations)
-            {
-                if (!rel.answerList.Contains(rel.answer))
-                {
-                    rel.answerList.Add(rel.answer);
-                }
-            }
-
-            for (int i = 0; i < relations.Count; i++)
-            {
-                if (i < answers.Count)
-                {
-                    string selectedAnswer = answers[i];
-
-                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
-
-                    if (relations[i].selectedItem == relations[i].answer)
-                    {
-                        relations[i].grade = 1;
-                    }
-                    else
-                    {
-                        relations[i].grade = 0;
-                    }
-                }
-                else
-                {
-                    relations[i].grade = 0;
-                }
-            }
-
-            _repositorio.gradeAdjetive = relations.Sum(a => a.grade);
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
 
             return View("ResultMC", relations);
         }
@@ -528,41 +311,10 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersLieu(List<string> answers)
         {
-            _repositorio.LieuCompleted = true;
+            var numberQuestions = 10;
+            var typeCompleated = "Prepositions de Lieu";
             var relations = _repositorio.preguntas;
-
-            foreach (var rel in relations)
-            {
-                if (!rel.answerList.Contains(rel.answer))
-                {
-                    rel.answerList.Add(rel.answer);
-                }
-            }
-
-            for (int i = 0; i < relations.Count; i++)
-            {
-                if (i < answers.Count)
-                {
-                    string selectedAnswer = answers[i];
-
-                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
-
-                    if (relations[i].selectedItem == relations[i].answer)
-                    {
-                        relations[i].grade = 1;
-                    }
-                    else
-                    {
-                        relations[i].grade = 0;
-                    }
-                }
-                else
-                {
-                    relations[i].grade = 0;
-                }
-            }
-
-            _repositorio.gradeLieu = relations.Sum(a => a.grade);
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
 
             return View("ResultMC", relations);
         }
@@ -570,41 +322,10 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersFamily(List<string> answers)
         {
-            _repositorio.FamilyCompleted = true;
+            var numberQuestions = 10;
+            var typeCompleated = "Le Famille";
             var relations = _repositorio.preguntas;
-
-            foreach (var rel in relations)
-            {
-                if (!rel.answerList.Contains(rel.answer))
-                {
-                    rel.answerList.Add(rel.answer);
-                }
-            }
-
-            for (int i = 0; i < relations.Count; i++)
-            {
-                if (i < answers.Count)
-                {
-                    string selectedAnswer = answers[i];
-
-                    relations[i].selectedItem = relations[i].answerList.FirstOrDefault(a => a.ToString() == selectedAnswer);
-
-                    if (relations[i].selectedItem == relations[i].answer)
-                    {
-                        relations[i].grade = 1;
-                    }
-                    else
-                    {
-                        relations[i].grade = 0;
-                    }
-                }
-                else
-                {
-                    relations[i].grade = 0;
-                }
-            }
-
-            _repositorio.gradeFamily = relations.Sum(a => a.grade);
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
 
             return View("ResultMC", relations);
         }
@@ -613,31 +334,11 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersNations(List<string> answers)
         {
-            _repositorio.NationsCompleted = true;
+            var numberQuestions = 5;
+            var typeCompleated = "Les Nationalites";
             var nationsQ = _repositorio.nations;
             var relations = _repositorio.getAnswersNationality(nationsQ);
-
-            for (int i = 0; i < relations.Count; i++)
-            {
-                if (i < answers.Count)
-                {
-                    string selectedAnswer = answers[i].Trim().ToLower();
-
-                    relations[i].selectedItem = relations[i].answer.ToString().Trim().ToLower() == selectedAnswer
-                        ? relations[i].answer
-                        : null;
-
-                    relations[i].grade = relations[i].selectedItem != null ? 1 : 0;
-                }
-                else
-                {
-                    relations[i].grade = 0;
-                }
-            }
-
-
-
-            _repositorio.gradeNations = relations.Sum(a => a.grade);
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
 
             return View("ResultNationality", relations);
         }
