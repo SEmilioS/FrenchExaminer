@@ -320,7 +320,7 @@ namespace FEWebApp.Data
             var answer21 = new Answer { Id = 21, value = "1er janvier" };
             var answer22 = new Answer { Id = 22, value = "25 décembre" };
             var answer23 = new Answer { Id = 23, value = "1er mai" };
-            var answer24 = new Answer { Id = 24, value = "coq" };
+            var answer24 = new Answer { Id = 24, value = "Coq" };
             var answer25 = new Answer { Id = 25, value = "Cygne" };
             var answer26 = new Answer { Id = 26, value = "Aigle" };
             var answer27 = new Answer { Id = 27, value = "Colombe" };
@@ -328,7 +328,7 @@ namespace FEWebApp.Data
             var answer29 = new Answer { Id = 29, value = "Rose" };
             var answer30 = new Answer { Id = 30, value = "Tournesol" };
             var answer31 = new Answer { Id = 31, value = "Lilas" };
-            var answer32 = new Answer { Id = 32, value = "Museo de Louvre" };
+            var answer32 = new Answer { Id = 32, value = "Colisée Romain" };
             var answer33 = new Answer { Id = 33, value = "Big Ben" };
             var answer34 = new Answer { Id = 34, value = "Tour de Pise" };
             var answer35 = new Answer { Id = 35, value = "Tour de Eiffel" };
@@ -340,10 +340,10 @@ namespace FEWebApp.Data
             var answer41 = new Answer { Id = 41, value = "Ode á la Joie" };
             var answer42 = new Answer { Id = 42, value = "God Save the King" };
             var answer43 = new Answer { Id = 43, value = "Hymne á la Beauté" };
-            var answer44 = new Answer { Id = 44, value = "Vino, Queso, Crepas" };
-            var answer45 = new Answer { Id = 45, value = "Burger, Fries, Shake" };
-            var answer46 = new Answer { Id = 46, value = "Vino, Pasta, Dim Sum" };
-            var answer47 = new Answer { Id = 47, value = "Gallo Pinto, Queso, Crepas" };
+            var answer44 = new Answer { Id = 44, value = "Vin, Fromage, Crêpes" };
+            var answer45 = new Answer { Id = 45, value = "Burger, Frites, Milkshake" };
+            var answer46 = new Answer { Id = 46, value = "Vin, Pâtes, Dim Sum" };
+            var answer47 = new Answer { Id = 47, value = "Gallo Pinto, Fromage, Crêpes" };
 
             //Sample Answers Verb to be Present //51,56,60,63,65,67
             var answer48 = new Answer { Id = 48, value = "suis" }; //je

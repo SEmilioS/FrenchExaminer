@@ -253,6 +253,7 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Culture Generale";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "MCetrePresent";
 
             return View("ResultMC", relations);
         }
@@ -264,6 +265,7 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Verbe Etre";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "MCweek";
 
             return View("ResultMC", relations);
         }
@@ -275,6 +277,7 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Jours de la Semaine";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "MCmonth";
 
             return View("ResultMC", relations);
         }
@@ -286,6 +289,7 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Mois de l'annee";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "McArticle";
 
             return View("ResultMC", relations);
         }
@@ -297,6 +301,7 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Articles definis et indefinis";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "MCnumbers";
 
             return View("ResultMC", relations);
         }
@@ -308,6 +313,7 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Noms de chiffres de 0 a 69";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "MCadjective";
 
             return View("ResultMC", relations);
         }
@@ -319,6 +325,7 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Adjectifs qualificatifs";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "McLieu";
 
             return View("ResultMC", relations);
         }
@@ -330,6 +337,7 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Prepositions de Lieu";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "McFamily";
 
             return View("ResultMC", relations);
         }
@@ -341,6 +349,7 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Le Famille";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "McNations";
 
             return View("ResultMC", relations);
         }
@@ -354,6 +363,7 @@ namespace FEWebApp.Controllers
             var nationsQ = _repositorio.nations;
             var relations = _repositorio.getAnswersNationality(nationsQ);
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "McVocabulary";
 
             return View("ResultNationality", relations);
         }
@@ -365,6 +375,7 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Extre Vocabulaire";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "Completed";
 
             return View("ResultNationality", relations);
         }

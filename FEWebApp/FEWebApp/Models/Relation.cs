@@ -8,5 +8,6 @@
         public Answer selectedItem { get; set; }
         public int grade { get; set; }
         public Image img { get; set; }
+        public string NextAction { get; set; }
     }
 }
