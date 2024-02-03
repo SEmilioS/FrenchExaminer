@@ -146,7 +146,7 @@ namespace FEWebApp.Data
             var question65 = new Question { Id = 65, value = "____ fruit (Indefinis)" };  //un
             var question66 = new Question { Id = 66, value = "____ film (Indefinis)" };  //un
             var question67 = new Question { Id = 67, value = "____ traduction (Definis)" };  //la
-            var question68 = new Question { Id = 68, value = "____ adjectif (Definis)" };  //un
+            var question68 = new Question { Id = 68, value = "____ adjectif (Indefinis)" };  //un
             var question69 = new Question { Id = 69, value = "____ ville (Definis)" };  //le
             var question70 = new Question { Id = 70, value = "____ Tour Eiffel (Definis)" };  //la
             var question71 = new Question { Id = 71, value = "____ amie (Indefinis)" };  //une
@@ -406,7 +406,6 @@ namespace FEWebApp.Data
             var answer105 = new Answer { Id = 105, value = "un" };
             var answer106 = new Answer { Id = 106, value = "une" };
             var answer107 = new Answer { Id = 107, value = "des" };
-            var answer108 = new Answer { Id = 108, value = "une" };
 
             //Sample answers numbers from 0 to 69
             var answer109 = new Answer { Id = 109, value = "zéro" };
