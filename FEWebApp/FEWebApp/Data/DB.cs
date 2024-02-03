@@ -137,22 +137,22 @@ namespace FEWebApp.Data
 
 
             //Sample questions, Articles definites and indefinites
-            var question59 = new Question { Id = 59, value = "____ tableau" };  //le
-            var question60 = new Question { Id = 60, value = "____ lac" };  //le
-            var question61 = new Question { Id = 61, value = "____ opposé" };  //le
-            var question62 = new Question { Id = 62, value = "____ mois" };  //les
-            var question63 = new Question { Id = 63, value = "____ éléphant" };  //un
-            var question64 = new Question { Id = 64, value = "____ petite" };  //une
-            var question65 = new Question { Id = 65, value = "____ fruit" };  //un
-            var question66 = new Question { Id = 66, value = "____ film" };  //un
-            var question67 = new Question { Id = 67, value = "____ traduction" };  //la
-            var question68 = new Question { Id = 68, value = "____ adjectif" };  //un
-            var question69 = new Question { Id = 69, value = "____ ville" };  //le
-            var question70 = new Question { Id = 70, value = "____ Tour Eiffel" };  //la
-            var question71 = new Question { Id = 71, value = "____ amie" };  //une
-            var question72 = new Question { Id = 72, value = "____ adjectif" };  //un
-            var question73 = new Question { Id = 73, value = "____ instrument" };  //un
-            var question74 = new Question { Id = 74, value = "____ colle" };  //une
+            var question59 = new Question { Id = 59, value = "____ tableau (Defenis)" };  //le
+            var question60 = new Question { Id = 60, value = "____ lac (Definis)"};  //le
+            var question61 = new Question { Id = 61, value = "____ opposé (Definis)" };  //le
+            var question62 = new Question { Id = 62, value = "____ mois (Definis)" };  //les
+            var question63 = new Question { Id = 63, value = "____ éléphant (Indefinis)" };  //un
+            var question64 = new Question { Id = 64, value = "____ petite (Indefinis)" };  //une
+            var question65 = new Question { Id = 65, value = "____ fruit (Indefinis)" };  //un
+            var question66 = new Question { Id = 66, value = "____ film (Indefinis)" };  //un
+            var question67 = new Question { Id = 67, value = "____ traduction (Definis)" };  //la
+            var question68 = new Question { Id = 68, value = "____ adjectif (Definis)" };  //un
+            var question69 = new Question { Id = 69, value = "____ ville (Definis)" };  //le
+            var question70 = new Question { Id = 70, value = "____ Tour Eiffel (Definis)" };  //la
+            var question71 = new Question { Id = 71, value = "____ amie (Indefinis)" };  //une
+            var question72 = new Question { Id = 72, value = "____ adjectif (Indefinis)" };  //un
+            var question73 = new Question { Id = 73, value = "____ instrument (Indefinis)" };  //un
+            var question74 = new Question { Id = 74, value = "____ colle (Indefinis)" };  //une
 
 
             //Sample questions, numbers from 0 to 69
@@ -260,8 +260,8 @@ namespace FEWebApp.Data
             var question171 = new Question { Id = 171, value = "Ricardo et Jennie sont ____ de Juan et María" };
             var question172 = new Question { Id = 172, value = "Silvia est ____ de Xinia" };
             var question173 = new Question { Id = 173, value = "Jennie est ____ de Ricardo" };
-            var question174 = new Question { Id = 174, value = "Segio et Pilar sont ____ de Xinia" };
-            var question175 = new Question { Id = 175, value = "Oaula est ____ de María" };
+            var question174 = new Question { Id = 174, value = "Sergio et Pilar sont ____ de Xinia" };
+            var question175 = new Question { Id = 175, value = "Paula est ____ de María" };
             var question176 = new Question { Id = 176, value = "Cedric est ____ de Xinia" };
             var question177 = new Question { Id = 177, value = "Jennie est ____ de Paula" };
             var question178 = new Question { Id = 178, value = "L'image correspond a" };
@@ -512,7 +512,7 @@ namespace FEWebApp.Data
             var answer204 = new Answer { Id = 204, value = "à" };
 
             //Sample answers family
-            var answer205 = new Answer { Id = 205, value = "le grande-pere" };
+            var answer205 = new Answer { Id = 205, value = "le grand-pere" };
             var answer206 = new Answer { Id = 206, value = "le beau-pere" };
             var answer207 = new Answer { Id = 207, value = "le pere" };
             var answer208 = new Answer { Id = 208, value = "le cousin" };
@@ -534,7 +534,7 @@ namespace FEWebApp.Data
             var answer224 = new Answer { Id = 224, value = "la petite-fille" };
             var answer225 = new Answer { Id = 225, value = "la belle-fille" };
             var answer226 = new Answer { Id = 226, value = "la sœur" };
-            var answer227 = new Answer { Id = 227, value = "la femme" };
+            var answer227 = new Answer { Id = 227, value = "la famille" };
 
             //Sample answers nationality
             var answer228 = new Answer { Id = 228, value = "Costaricienne" };
