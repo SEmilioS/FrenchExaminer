@@ -309,6 +309,18 @@ namespace FEWebApp.Data
 
             var question215 = new Question { Id = 215, value = "Ecrire la date 08/01/2024 en (longue)." };
 
+            var question216 = new Question { Id = 216, value = "Chinois" };
+            var question217 = new Question { Id = 217, value = "Américain" };
+            var question218 = new Question { Id = 218, value = "Canadien" };
+            var question219 = new Question { Id = 219, value = "Anglais" };
+            var question220 = new Question { Id = 220, value = "Brésilien" };
+            var question221 = new Question { Id = 221, value = "Allemand" };
+            var question222 = new Question { Id = 222, value = "Russe" };
+            var question223 = new Question { Id = 223, value = "Italien" };
+            var question224 = new Question { Id = 224, value = "Mexicain" };
+            var question225 = new Question { Id = 225, value = "Espagnol" };
+            var question226 = new Question { Id = 226, value = "Australien" };
+            var question227 = new Question { Id = 227, value = "Portugais" };
 
 
             // Sample Answers Genearal knowlage
@@ -581,6 +593,19 @@ namespace FEWebApp.Data
 
             var answer253 = new Answer { Id = 253, value = "Huit janvier deux mille vingt-quatre" };
 
+            var answer254 = new Answer { Id = 254, value = "Chinoise" };
+            var answer255 = new Answer { Id = 255, value = "Americaine" };
+            var answer256 = new Answer { Id = 256, value = "Canadienne" };
+            var answer257 = new Answer { Id = 257, value = "Anglaise" };
+            var answer258 = new Answer { Id = 258, value = "Bresilienne" };
+            var answer259 = new Answer { Id = 259, value = "Allemandee" };
+            var answer260 = new Answer { Id = 260, value = "Russe" };
+            var answer261 = new Answer { Id = 261, value = "Italienne" };
+            var answer262 = new Answer { Id = 262, value = "Mexicainne" };
+            var answer263 = new Answer { Id = 263, value = "Espagnole" };
+            var answer264 = new Answer { Id = 264, value = "Australienne" };
+            var answer265 = new Answer { Id = 265, value = "Portugaise" };
+
 
 
             // Sample Relations
@@ -815,6 +840,19 @@ namespace FEWebApp.Data
             var relation214 = new Relation { question = question214, answer = answer89, answerList = _answersMonths };
 
             var relation215 = new Relation { question = question215, answer = answer253 };
+
+            var relation216 = new Relation { question = question216, answer = answer254 };
+            var relation217 = new Relation { question = question217, answer = answer255 };
+            var relation218 = new Relation { question = question218, answer = answer256 };
+            var relation219 = new Relation { question = question219, answer = answer257 };
+            var relation220 = new Relation { question = question220, answer = answer258 };
+            var relation221 = new Relation { question = question221, answer = answer259 };
+            var relation222 = new Relation { question = question222, answer = answer260 };
+            var relation223 = new Relation { question = question223, answer = answer261 };
+            var relation224 = new Relation { question = question224, answer = answer262 };
+            var relation225 = new Relation { question = question225, answer = answer263 };
+            var relation226 = new Relation { question = question226, answer = answer264 };
+            var relation227 = new Relation { question = question227, answer = answer265 };
 
             _answersEtrePresent.Add(answer48);
             _answersEtrePresent.Add(answer49);
@@ -1162,6 +1200,19 @@ namespace FEWebApp.Data
             _questionsNations.Add(question184);
             _questionsNations.Add(question185);
             _questionsNations.Add(question186);
+            _questionsNations.Add(question216);
+            _questionsNations.Add(question217);
+            _questionsNations.Add(question218);
+            _questionsNations.Add(question219);
+            _questionsNations.Add(question220);
+            _questionsNations.Add(question221);
+            _questionsNations.Add(question222);
+            _questionsNations.Add(question223);
+            _questionsNations.Add(question224);
+            _questionsNations.Add(question225);
+            _questionsNations.Add(question226);
+            _questionsNations.Add(question227);
+
 
             _questionsVocabulary.Add(question191);
             _questionsVocabulary.Add(question192);
@@ -1398,8 +1449,18 @@ namespace FEWebApp.Data
 
             _relations.Add(relation215);
 
-
-
+            _relationNationality.Add(relation216);
+            _relationNationality.Add(relation217);
+            _relationNationality.Add(relation218);
+            _relationNationality.Add(relation219);
+            _relationNationality.Add(relation220);
+            _relationNationality.Add(relation221);
+            _relationNationality.Add(relation222);
+            _relationNationality.Add(relation223);
+            _relationNationality.Add(relation224);
+            _relationNationality.Add(relation225);
+            _relationNationality.Add(relation226);
+            _relationNationality.Add(relation227);
 
         }
 
