@@ -39,7 +39,7 @@ namespace FEWebApp.Controllers
         {
             if (!_repositorio.NationsCompleted)
             {
-                var randomQuestions = _repositorio.getQuestionsNation(5);
+                var randomQuestions = _repositorio.getQuestionsNation(8);
 
                 _repositorio.nations = null;
                 _repositorio.nations = randomQuestions;
