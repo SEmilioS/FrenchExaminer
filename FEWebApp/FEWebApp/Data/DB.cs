@@ -44,6 +44,7 @@ namespace FEWebApp.Data
         public bool FamilyCompleted = false;
         public bool NationsCompleted = false;
         public bool VocabularyCompleted = false;
+        public bool DateCompleted = false;
 
         public DB()
         {
@@ -294,6 +295,19 @@ namespace FEWebApp.Data
             var question202 = new Question { Id = 202, value = "Un ____" };
             var question203 = new Question { Id = 203, value = "Un ____ (de) ____" };
 
+            var question204 = new Question { Id = 204, value = "Le France limite au SUD avec:" }; //España 249
+            var question205 = new Question { Id = 205, value = "Le France limite au l'EST avec:" }; //Suiza 250
+            var question206 = new Question { Id = 206, value = "Le France limite au NORD avec:" }; //Belgica 251
+            var question207 = new Question { Id = 207, value = "Le France limite au OEST avec:" }; //Oceano atlantico 252
+            var question208 = new Question { Id = 208, value = "Le jour dédié à Jupiter le père de dieux correspond à:" }; //Jeudi 71
+            var question209 = new Question { Id = 209, value = "Le jour dédié a la Lune correspond a:" }; //Lundi 68
+            var question210 = new Question { Id = 210, value = "Le 1er jour de la semaine correspond a:" }; //68
+            var question211 = new Question { Id = 211, value = "Le premier jour de L'an on le fête en ____" }; //Janvier 88
+            var question212 = new Question { Id = 212, value = "Le fête des Meres au Costa Rica on la fête au mois d'____ " }; //Aout 95
+            var question213 = new Question { Id = 213, value = "Le toussaint c'est en ____" }; //Movembre 98
+            var question214 = new Question { Id = 214, value = "On fête la Chandeleur en ____" }; //fevvrier 89
+
+            var question215 = new Question { Id = 215, value = "Ecrire la date 08/01/2024 en (longue)." };
 
 
 
@@ -560,6 +574,12 @@ namespace FEWebApp.Data
             var answer247 = new Answer { Id = 247, value = "Tapis" };
             var answer248 = new Answer { Id = 248, value = "Ecran de television" };
 
+            var answer249 = new Answer { Id = 249, value = "Espagne" };
+            var answer250 = new Answer { Id = 250, value = "Suisse" };
+            var answer251 = new Answer { Id = 251, value = "Belgique" };
+            var answer252 = new Answer { Id = 252, value = "Océan Atlantique" };
+
+            var answer253 = new Answer { Id = 253, value = "Huit janvier deux mille vingt-quatre" };
 
 
 
@@ -780,6 +800,22 @@ namespace FEWebApp.Data
             var relation202 = new Relation { question = question202, answer = answer247, img = image12 };
             var relation203 = new Relation { question = question203, answer = answer248, img = image13 };
 
+            var relation204 = new Relation { question = question204, answer = answer249, answerList = new List<Answer> { answer250, answer251, answer252 } };
+            var relation205 = new Relation { question = question205, answer = answer250, answerList = new List<Answer> { answer249, answer251, answer252 } };
+            var relation206 = new Relation { question = question206, answer = answer251, answerList = new List<Answer> { answer250, answer249, answer252 } };
+            var relation207 = new Relation { question = question207, answer = answer252, answerList = new List<Answer> { answer250, answer251, answer249 } };
+
+            var relation208 = new Relation { question = question208, answer = answer71, answerList = _answerJoursSemaine };
+            var relation209 = new Relation { question = question209, answer = answer68, answerList = _answerJoursSemaine };
+            var relation210 = new Relation { question = question210, answer = answer68, answerList = _answerJoursSemaine };
+
+            var relation211 = new Relation { question = question211, answer = answer88, answerList = _answersMonths };
+            var relation212 = new Relation { question = question212, answer = answer95, answerList = _answersMonths };
+            var relation213 = new Relation { question = question213, answer = answer98, answerList = _answersMonths };
+            var relation214 = new Relation { question = question214, answer = answer89, answerList = _answersMonths };
+
+            var relation215 = new Relation { question = question215, answer = answer253 };
+
             _answersEtrePresent.Add(answer48);
             _answersEtrePresent.Add(answer49);
             _answersEtrePresent.Add(answer50);
@@ -815,7 +851,7 @@ namespace FEWebApp.Data
             _answersArticle.Add(answer105);
             _answersArticle.Add(answer106);
             _answersArticle.Add(answer107);
-            _answersArticle.Add(answer108);
+            //108 was repeated so it was deleted
             _answersNumbers.Add(answer109);
             _answersNumbers.Add(answer110);
             _answersNumbers.Add(answer111);
@@ -931,6 +967,10 @@ namespace FEWebApp.Data
             _questionsCG.Add(question12);
             _questionsCG.Add(question13);
             _questionsCG.Add(question14);
+            _questionsCG.Add(question204);
+            _questionsCG.Add(question205);
+            _questionsCG.Add(question206);
+            _questionsCG.Add(question207);
 
             _questionsEtre.Add(question15);
             _questionsEtre.Add(question16);
@@ -964,6 +1004,9 @@ namespace FEWebApp.Data
             _questionsWeek.Add(question44);
             _questionsWeek.Add(question45);
             _questionsWeek.Add(question46);
+            _questionsWeek.Add(question208);
+            _questionsWeek.Add(question209);
+            _questionsWeek.Add(question210);
 
             _questionMonth.Add(question47);
             _questionMonth.Add(question48);
@@ -981,6 +1024,10 @@ namespace FEWebApp.Data
             _questionMonth.Add(question188);
             _questionMonth.Add(question189);
             _questionMonth.Add(question190);
+            _questionMonth.Add(question211);
+            _questionMonth.Add(question212);
+            _questionMonth.Add(question213);
+            _questionMonth.Add(question214);
 
             _questionArticle.Add(question59);
             _questionArticle.Add(question60);
@@ -1337,6 +1384,22 @@ namespace FEWebApp.Data
             _relationsVocabulary.Add(relation202);
             _relationsVocabulary.Add(relation203);
 
+            _relations.Add(relation204);
+            _relations.Add(relation205);
+            _relations.Add(relation206);
+            _relations.Add(relation207);
+            _relations.Add(relation208);
+            _relations.Add(relation209);
+            _relations.Add(relation210);
+            _relations.Add(relation211);
+            _relations.Add(relation212);
+            _relations.Add(relation213);
+            _relations.Add(relation214);
+
+            _relations.Add(relation215);
+
+
+
 
         }
 
@@ -1359,7 +1422,7 @@ namespace FEWebApp.Data
 
         public List<Relation> generateNotes(int items, string type, List<Relation> relations, List<String> answers)
         {
-            if (!(type.Equals("Les Nationalites") || type.Equals("Extre Vocabulaire")))
+            if (!(type.Equals("Les Nationalites") || type.Equals("Extre Vocabulaire") || type.Equals("Le Date")))
             {
                 foreach (var rel in relations)
                 {
@@ -1454,10 +1517,20 @@ namespace FEWebApp.Data
                 case "Extre Vocabulaire":
                     VocabularyCompleted = true;
                     break;
+                case "La Date":
+                    DateCompleted = true;
+                    break;
             }
 
             return relations;
             
+        }
+
+        public List<Relation> getQuestionDate()
+        {
+            List<Relation> selectedQuestions = new List<Relation>();
+            selectedQuestions.Add(_relations.FirstOrDefault(r => r.question.Id.Equals(215)));
+            return selectedQuestions;
         }
 
 
@@ -1490,7 +1563,7 @@ namespace FEWebApp.Data
 
             foreach (var question in questions)
             {
-                var questionDTO = _questionsCG.FirstOrDefault(q => q.ToString() == question.ToString());
+                var questionDTO = _questionsCG.FirstOrDefault(q => q.Id == question.Id);
 
                 if (questionDTO != null)
                 {
@@ -1536,7 +1609,7 @@ namespace FEWebApp.Data
             {
                 if (question.Id >= 15 && question.Id <= 35)
                 {
-                    var questionDTO = _questionsEtre.FirstOrDefault(q => q.ToString() == question.ToString());
+                    var questionDTO = _questionsEtre.FirstOrDefault(q => q.Id == question.Id);
 
                     if (questionDTO != null)
                     {
@@ -1581,9 +1654,9 @@ namespace FEWebApp.Data
 
             foreach (var question in questions)
             {
-                if (question.Id >= 36 && question.Id <= 45)
+                if (question.Id >= 36 && question.Id <= 45 || question.Id >= 208 && question.Id <= 210)
                 {
-                    var questionDTO = _questionsWeek.FirstOrDefault(q => q.ToString() == question.ToString());
+                    var questionDTO = _questionsWeek.FirstOrDefault(q => q.Id == question.Id);
 
                     if (questionDTO != null)
                     {
@@ -1628,9 +1701,9 @@ namespace FEWebApp.Data
 
             foreach (var question in questions)
             {
-                if (question.Id >= 46 && question.Id <= 57)
+                if (question.Id >= 46 && question.Id <= 57 || question.Id >= 211 && question.Id <= 214)
                 {
-                    var questionDTO = _questionMonth.FirstOrDefault(q => q.ToString() == question.ToString());
+                    var questionDTO = _questionMonth.FirstOrDefault(q => q.Id == question.Id);
 
                     if (questionDTO != null)
                     {
@@ -1675,9 +1748,9 @@ namespace FEWebApp.Data
 
             foreach (var question in questions)
             {
-                if (question.Id >= 59 && question.Id <= 74)
+                if (question.Id >= 59 && question.Id <= 74 || question.Id >= 208 && question.Id <= 210)
                 {
-                    var questionDTO = _questionArticle.FirstOrDefault(q => q.ToString() == question.ToString());
+                    var questionDTO = _questionArticle.FirstOrDefault(q => q.Id == question.Id);
 
                     if (questionDTO != null)
                     {
@@ -1724,7 +1797,7 @@ namespace FEWebApp.Data
             {
                 if (question.Id >= 75 && question.Id <= 144)
                 {
-                    var questionDTO = _questionNumbers.FirstOrDefault(q => q.ToString() == question.ToString());
+                    var questionDTO = _questionNumbers.FirstOrDefault(q => q.Id == question.Id);
 
                     if (questionDTO != null)
                     {
@@ -1780,7 +1853,7 @@ namespace FEWebApp.Data
             {
                 if (question.Id >= 145 && question.Id <= 154)
                 {
-                    var questionDTO = _questionAdjetive.FirstOrDefault(q => q.ToString() == question.ToString());
+                    var questionDTO = _questionAdjetive.FirstOrDefault(q => q.Id == question.Id);
 
                     if (questionDTO != null)
                     {
@@ -1827,7 +1900,7 @@ namespace FEWebApp.Data
             {
                 if (question.Id >= 155 && question.Id <= 168)
                 {
-                    var questionDTO = _questionLieu.FirstOrDefault(q => q.ToString() == question.ToString());
+                    var questionDTO = _questionLieu.FirstOrDefault(q => q.Id == question.Id);
 
                     if (questionDTO != null)
                     {
@@ -1874,7 +1947,7 @@ namespace FEWebApp.Data
             {
                 if (question.Id >= 169 && question.Id <= 178)
                 {
-                    var questionDTO = _questionsFamily.FirstOrDefault(q => q.ToString() == question.ToString());
+                    var questionDTO = _questionsFamily.FirstOrDefault(q => q.Id == question.Id);
 
                     if (questionDTO != null)
                     {
@@ -1919,7 +1992,7 @@ namespace FEWebApp.Data
 
             foreach (var question in questions)
             {
-                var questionDTO = _questionsNations.FirstOrDefault(q => q.ToString() == question.ToString());
+                var questionDTO = _questionsNations.FirstOrDefault(q => q.Id == question.Id);
 
                 if (questionDTO != null)
                 {

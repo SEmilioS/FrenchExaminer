@@ -19,7 +19,23 @@ namespace FEWebApp.Controllers
             return View();
         }
 
-        public IActionResult McNations()
+        public IActionResult RcDate()
+        {
+            if (!_repositorio.DateCompleted)
+            {
+                var randomQuestions = _repositorio.getQuestionDate();
+
+                _repositorio.preguntas = null;
+                _repositorio.preguntas = randomQuestions;
+                var question = new List<Question>();
+                question.Add(randomQuestions[0].question);
+
+                return View(question);
+            }
+            return RedirectToAction("Completed");
+        }
+
+        public IActionResult RcNations()
         {
             if (!_repositorio.NationsCompleted)
             {
@@ -33,7 +49,7 @@ namespace FEWebApp.Controllers
             return RedirectToAction("Completed");
         }
 
-        public IActionResult McVocabulary()
+        public IActionResult RcVocabulary()
         {
             if (!_repositorio.VocabularyCompleted)
             {
@@ -349,7 +365,7 @@ namespace FEWebApp.Controllers
             var typeCompleated = "Le Famille";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
-            relations[0].NextAction = "McNations";
+            relations[0].NextAction = "RcNations";
 
             return View("ResultMC", relations);
         }
@@ -363,7 +379,7 @@ namespace FEWebApp.Controllers
             var nationsQ = _repositorio.nations;
             var relations = _repositorio.getAnswersNationality(nationsQ);
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
-            relations[0].NextAction = "McVocabulary";
+            relations[0].NextAction = "RcVocabulary";
 
             return View("ResultNationality", relations);
         }
@@ -374,6 +390,18 @@ namespace FEWebApp.Controllers
             var numberQuestions = 10;
             var typeCompleated = "Extre Vocabulaire";
             var relations = _repositorio.preguntas;
+            relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
+            relations[0].NextAction = "RcDate";
+
+            return View("ResultNationality", relations);
+        }
+
+        [HttpPost]
+        public IActionResult ProcessAnswersDate(List<string> answers)
+        {
+            var numberQuestions = 1;
+            var typeCompleated = "Le Date";
+            var relations = _repositorio.getQuestionDate();
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
             relations[0].NextAction = "Completed";
 

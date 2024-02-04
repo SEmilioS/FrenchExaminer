@@ -50,20 +50,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE1DbW9udGguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/McNations.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE1jTmF0aW9ucy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/MCnumbers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE1DbnVtYmVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/McVocabulary.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE1jVm9jYWJ1bGFyeS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/MCweek.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXE1Dd2Vlay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/RcDate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXFJjRGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/RcNations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXFJjTmF0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/RcVocabulary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWVuXFJjVm9jYWJ1bGFyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/serra/Desktop/FE/FrenchExaminer/FEWebApp/FEWebApp/Views/Examen/ResultMC.cshtml]
