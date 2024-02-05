@@ -148,7 +148,7 @@ namespace FEWebApp.Data
             var question66 = new Question { Id = 66, value = "____ film (Indefinis)" };  //un
             var question67 = new Question { Id = 67, value = "____ traduction (Definis)" };  //la
             var question68 = new Question { Id = 68, value = "____ adjectif (Indefinis)" };  //un
-            var question69 = new Question { Id = 69, value = "____ ville (Definis)" };  //le
+            var question69 = new Question { Id = 69, value = "____ ville (Definis)" };  //la
             var question70 = new Question { Id = 70, value = "____ Tour Eiffel (Definis)" };  //la
             var question71 = new Question { Id = 71, value = "____ amie (Indefinis)" };  //une
             var question72 = new Question { Id = 72, value = "____ adjectif (Indefinis)" };  //un
@@ -307,7 +307,7 @@ namespace FEWebApp.Data
             var question213 = new Question { Id = 213, value = "Le toussaint c'est en ____" }; //Movembre 98
             var question214 = new Question { Id = 214, value = "On fête la Chandeleur en ____" }; //fevvrier 89
 
-            var question215 = new Question { Id = 215, value = "Ecrire la date 08/01/2024 en (longue)." };
+            var question215 = new Question { Id = 215, value = "Ecrire la date 08/02/2024 en (longue)." };
 
             var question216 = new Question { Id = 216, value = "Chinois" };
             var question217 = new Question { Id = 217, value = "Américain" };
@@ -591,7 +591,7 @@ namespace FEWebApp.Data
             var answer251 = new Answer { Id = 251, value = "Belgique" };
             var answer252 = new Answer { Id = 252, value = "Océan Atlantique" };
 
-            var answer253 = new Answer { Id = 253, value = "Huit janvier deux mille vingt-quatre" };
+            var answer253 = new Answer { Id = 253, value = "Jeudi le 08 fevrier 2024" };
 
             var answer254 = new Answer { Id = 254, value = "Chinoise" };
             var answer255 = new Answer { Id = 255, value = "Americaine" };
@@ -672,7 +672,7 @@ namespace FEWebApp.Data
 
             var relation59 = new Relation { question = question59, answer = answer102, answerList = _answersArticle };
             var relation60 = new Relation { question = question60, answer = answer102, answerList = _answersArticle };
-            var relation61 = new Relation { question = question61, answer = answer102, answerList = _answersArticle };
+            var relation61 = new Relation { question = question61, answer = answer101, answerList = _answersArticle };
             var relation62 = new Relation { question = question62, answer = answer103, answerList = _answersArticle };
             var relation63 = new Relation { question = question63, answer = answer105, answerList = _answersArticle };
             var relation64 = new Relation { question = question64, answer = answer106, answerList = _answersArticle };
@@ -682,7 +682,7 @@ namespace FEWebApp.Data
 
             var relation67 = new Relation { question = question67, answer = answer104, answerList = _answersArticle };
             var relation68 = new Relation { question = question68, answer = answer105, answerList = _answersArticle };
-            var relation69 = new Relation { question = question69, answer = answer102, answerList = _answersArticle };
+            var relation69 = new Relation { question = question69, answer = answer104, answerList = _answersArticle };
             var relation70 = new Relation { question = question70, answer = answer104, answerList = _answersArticle };
             var relation71 = new Relation { question = question71, answer = answer106, answerList = _answersArticle };
             var relation72 = new Relation { question = question72, answer = answer105, answerList = _answersArticle };
@@ -832,7 +832,7 @@ namespace FEWebApp.Data
 
             var relation208 = new Relation { question = question208, answer = answer71, answerList = _answerJoursSemaine };
             var relation209 = new Relation { question = question209, answer = answer68, answerList = _answerJoursSemaine };
-            var relation210 = new Relation { question = question210, answer = answer68, answerList = _answerJoursSemaine };
+            var relation210 = new Relation { question = question210, answer = answer74, answerList = _answerJoursSemaine };
 
             var relation211 = new Relation { question = question211, answer = answer88, answerList = _answersMonths };
             var relation212 = new Relation { question = question212, answer = answer95, answerList = _answersMonths };
@@ -1604,7 +1604,7 @@ namespace FEWebApp.Data
 
             List<Question> shuffledQuestions = _questionsCG.OrderBy(q => Guid.NewGuid()).ToList();
 
-            for (int i = 0; i < shuffledQuestions.Count && selectedQuestions.Count < quantity; i++)
+            for (int i = 0; i < quantity; i++)
             {
                 Question question = shuffledQuestions[i];
 

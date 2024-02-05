@@ -91,7 +91,7 @@ namespace FEWebApp.Controllers
         {
             if (!_repositorio.MonthCompleted)
             {
-                var randomQuestions = _repositorio.getQuestionsMonth(10);
+                var randomQuestions = _repositorio.getQuestionsMonth(12);
                 var relations = _repositorio.getAnswersMonth(randomQuestions);
 
                 _repositorio.preguntas = null;
@@ -301,7 +301,7 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersMonth(List<string> answers)
         {
-            var numberQuestions = 10;
+            var numberQuestions = 12;
             var typeCompleated = "Mois de l'annee";
             var relations = _repositorio.preguntas;
             relations = _repositorio.generateNotes(numberQuestions, typeCompleated, relations, answers);
@@ -374,7 +374,7 @@ namespace FEWebApp.Controllers
         [HttpPost]
         public IActionResult ProcessAnswersNations(List<string> answers)
         {
-            var numberQuestions = 5;
+            var numberQuestions = 12;
             var typeCompleated = "Les Nationalites";
             var nationsQ = _repositorio.nations;
             var relations = _repositorio.getAnswersNationality(nationsQ);
