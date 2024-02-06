@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FEWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0880af0be766e8c16bcbc8a37e12bee69941ae1a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a941f0f93efe37d57de9af9834d4ffb0b694bd9d")]
 [assembly: System.Reflection.AssemblyProductAttribute("FEWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FEWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
